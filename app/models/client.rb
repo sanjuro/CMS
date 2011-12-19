@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   
   attr_accessible :client_number, :client_type, :registered_name, :id_number,
-                  :telephone_work, :telephone_home, :email_address,
+                  :telephone_work, :telephone_home, :email_address, :is_smp,
                   :telephone_mobile, :passport_number, :created_at, 
                   :updated_at
                   

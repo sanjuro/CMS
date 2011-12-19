@@ -11,6 +11,7 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string :telephone_mobile
       t.string :email_address
       t.string :passport_number
+      t.boolean "is_smp", :default => false
       
       t.timestamps
     end

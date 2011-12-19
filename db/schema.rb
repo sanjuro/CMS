@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.string   "telephone_mobile"
     t.string   "email_address"
     t.string   "passport_number"
+    t.boolean  "is_smp",           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

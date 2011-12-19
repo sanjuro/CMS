@@ -1,10 +1,7 @@
 class Installer < ActiveRecord::Base
   
-  attr_accessible :id, :firstname, :surname, :contact_number
-                  
-  belongs_to :installation_type                 
+  attr_accessible :id, :first_name, :second_name, :contact_number
                   
   has_many :installations  
-              
-   
+                
 end
