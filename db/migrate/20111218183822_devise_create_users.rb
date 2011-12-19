@@ -1,7 +1,6 @@
-class DeviseCreateUser < ActiveRecord::Migration
+class DeviseCreateUsers < ActiveRecord::Migration
   def self.up
-    create_table(:user) do |t|
-      t.references :client      
+    create_table(:users) do |t|     
       
       t.database_authenticatable :null => false
       t.recoverable
@@ -19,8 +18,8 @@ class DeviseCreateUser < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :user, :email,                :unique => true
-    add_index :user, :reset_password_token, :unique => true
+    add_index :users, :email,                :unique => true
+    add_index :users, :reset_password_token, :unique => true
     # add_index :user, :confirmation_token,   :unique => true
     # add_index :user, :unlock_token,         :unique => true
     # add_index :user, :authentication_token, :unique => true
@@ -28,6 +27,6 @@ class DeviseCreateUser < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :user
+    drop_table :users
   end
 end

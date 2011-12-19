@@ -1,18 +1,19 @@
-# app/admin/clients.rb
-ActiveAdmin.register Client do  
+# app/admin/installations.rb
+ActiveAdmin.register Installation do  
 
   # Create sections on the index screen
   scope :all, :default => true
  
   # filter :order_items, :as => :select, :collection => lambda{ Order.order_items }
-  filter :registered_name
-  filter :email_address
+  filter :created_at
 
   # Customize columns displayed on the index screen in the table
   index do
-    column :client_number
-    column :registered_name
-    column :email_address
+    column :installation_number
+    column :installation_type_id
+    column :cost_total
+    column :selling_total
+    column :created_at
     default_actions   
   end
 

@@ -1,7 +1,7 @@
-class CreateCms < ActiveRecord::Migration
+class CreateCmsDb < ActiveRecord::Migration
   
   def self.up
-    create_table :client, :options => "ENGINE=INNODB" do |t|
+    create_table :clients, :options => "ENGINE=INNODB" do |t|
       t.references :client_type
       t.string :client_number
       t.string :registered_name
@@ -15,12 +15,22 @@ class CreateCms < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :client_type, :options => "ENGINE=INODB" do |t|
+    create_table :client_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end
     
-    create_table :installation, :options => "ENGINE=INNODB" do |t|
+    create_table :installers, :options => "ENGINE=INODB" do |t|
+      t.string :first_name
+      t.string :second_name
+      t.string :contact_number
+      
+      t.timestamps
+    end  
+    
+    create_table :installations, :options => "ENGINE=INNODB" do |t|
       t.references :installation_type
+      t.references :client
+      t.references :user
       t.string :installation_number
       t.decimal "cost_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
       t.decimal "selling_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
@@ -28,9 +38,10 @@ class CreateCms < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index "installation", ["installation_number"], :name => "index_installation_on_installation_number"        
+    add_index "installations", ["installation_number"], :name => "index_installation_on_installation_number"        
+    add_index "installations", ["client_id"], :name => "index_installation_on_client"  
     
-    create_table "installation_item", :force => true do |t|
+    create_table "installation_items", :force => true do |t|
       t.references :installation
       t.references :product
       t.integer :quantity
@@ -40,14 +51,14 @@ class CreateCms < ActiveRecord::Migration
       t.timestamps
     end   
     
-    add_index "installation_item", ["installation_id"], :name => "index_installation_items_on_installation_id"
-    add_index "installation_item", ["product_id"], :name => "index_installation_items_on_product_id"     
+    add_index "installation_items", ["installation_id"], :name => "index_installation_items_on_installation_id"
+    add_index "installation_items", ["product_id"], :name => "index_installation_items_on_product_id"     
     
-    create_table :installation_type, :options => "ENGINE=INODB" do |t|
+    create_table :installation_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end    
 
-    create_table :location, :options => "ENGINE=INODB" do |t|
+    create_table :locations, :options => "ENGINE=INODB" do |t|
       t.references :client
       t.string :unit_number
       t.string :street_name
@@ -61,7 +72,7 @@ class CreateCms < ActiveRecord::Migration
       t.timestamps
     end  
     
-    create_table "product", :force => true do |t|
+    create_table "products", :force => true do |t|
       t.references :product_type
       t.string "product_name", :default => "", :null => false
       t.string "product_code"
@@ -76,7 +87,7 @@ class CreateCms < ActiveRecord::Migration
       t.timestamps
     end    
     
-    create_table :product_type, :options => "ENGINE=INODB" do |t|
+    create_table :product_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end 
   end

@@ -1,5 +1,22 @@
 ActiveAdmin::Dashboards.build do
 
+  section "Recent Installations", :priority => 1 do
+      table_for Installation.order('created_at desc').limit(15) do
+        column("Number") {|installation| link_to(installation.installation_number, admin_installation_path(installation)) }
+        column("Type") {|installation| installation.installation_type_id }
+        column("Cost") {|installation| installation.cost_price }
+        column("Selling") {|installation| installation.selling_price }
+        column("Date") {|installation| installation.created_at? ? l(installation.created_at, :format => :long) : '-' } 
+      end
+  end   
+  
+  section "Recent Clients", :priority => 2  do
+      table_for Client.order('created_at desc').limit(10) do
+        column("Client") {|client| link_to(client.registered_name, admin_client_path(client)) + ' ' + 'signed in at' + ' ' + l(client.created_at, :format => :long) }
+      end     
+  end
+    
+  
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
