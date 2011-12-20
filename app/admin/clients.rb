@@ -39,7 +39,6 @@ ActiveAdmin.register Client do
   
   form do |f|
     f.inputs "Details" do
-      f.input :client_number
       f.input :registered_name
       f.input :id_number
       f.input :is_smp
@@ -51,7 +50,19 @@ ActiveAdmin.register Client do
       f.input :telephone_mobile 
       f.input :email_address 
     end
-    f.inputs :name => 'Location #%i', :for => :locations
+    f.inputs "Locations" do
+      f.has_many :locations do |i|
+        i.input :_destroy, :as => :boolean, :label => "Delete this item" unless i.object.id.nil?
+        i.input :unit_number
+        i.input :street_name
+        i.input :suburb
+        i.input :city
+        i.input :province
+        i.input :postal_code
+        i.input :latitude
+        i.input :longitude
+      end
+    end
     f.buttons
   end  
 

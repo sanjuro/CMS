@@ -46,8 +46,8 @@ class CreateCmsDb < ActiveRecord::Migration
       t.references :installation
       t.references :product
       t.integer :quantity
-      t.decimal  :cost_totatl,            :precision => 8, :scale => 2, :default => 0.0, :null => false
-      t.decimal  :selling_total,             :precision => 8, :scale => 2, :default => 0.0, :null => false
+      t.decimal  :cost_price,            :precision => 8, :scale => 2, :default => 0.0, :null => false
+      t.decimal  :selling_price,             :precision => 8, :scale => 2, :default => 0.0, :null => false
       
       t.timestamps
     end   

@@ -1,16 +1,18 @@
 class Installation < ActiveRecord::Base
   
-  attr_accessible :id, :installation_number, :installation_type, :client_id, 
-                  :cost_total, :selling_total, :user_id, :created_at, 
-                  :updated_at
+  attr_accessible :id, :installation_number, :installation_type_id, :client_id, 
+                  :cost_total, :selling_total, :created_by, :created_at, 
+                  :updated_at, :installation_items_attributes
                   
   belongs_to :client, :foreign_key => "client_id", :class_name => "Client"
   belongs_to :user, :foreign_key => "user_id", :class_name => "User"
   
-  has_one :installation_type                 
+  belongs_to :installation_type                 
                   
   has_many :installation_items, :dependent => :destroy    
-  has_many :installer
+  has_many :installers
+  
+  accepts_nested_attributes_for :installation_items, :allow_destroy => true
              
   before_create :generate_installation_number
   

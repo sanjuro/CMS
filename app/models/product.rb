@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   
-  attr_accessible :id, :product_type, :product_code, :product_name
-                  :product_description, :cost_price :selling_price
+  attr_accessible :id, :product_type, :product_code, :product_name,
+                  :product_description, :cost_price, :selling_price
                   
   belongs_to :product_type      
   
