@@ -95,7 +95,11 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
   create_table "installations", :force => true do |t|
     t.integer  "installation_type_id"
     t.integer  "client_id"
-    t.integer  "user_id"
+    t.string   "voucher_number"
+    t.string   "decoder_number_one"
+    t.string   "decoder_number_two"
+    t.string   "smartcard_number_one"
+    t.string   "smartcard_number_two"
     t.string   "installation_number"
     t.decimal  "cost_total",           :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.decimal  "selling_total",        :precision => 8, :scale => 2, :default => 0.0, :null => false

@@ -36,6 +36,19 @@ ActiveAdmin.register Client do
         row("Telephone Mobile") { client.telephone_mobile }
         row("Email Address") { client.email_address }
       end
+    end
+      
+    panel "Location Details" do
+      attributes_table_for client do
+          row("Unit Number") { client.unit_number }
+          row("Street Name") { client.street_name }
+          row("Suburb") { client.suburb}
+          row("City") { client.city }
+          row("Province") { client.province }
+          row("Postal Code") { client.postal_code }
+          row("Latitude") { client.latitude}
+          row("Longitude") { client.longitude }
+      end
     end 
     
     active_admin_comments  
@@ -67,5 +80,9 @@ ActiveAdmin.register Client do
     end
     f.buttons
   end  
+  
+  action_item :only => :show do 
+    link_to('New Installation', new_admin_installation_path)
+  end     
 
 end

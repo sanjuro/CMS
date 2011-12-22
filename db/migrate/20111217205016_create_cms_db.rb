@@ -40,7 +40,11 @@ class CreateCmsDb < ActiveRecord::Migration
     create_table :installations, :options => "ENGINE=INNODB" do |t|
       t.references :installation_type
       t.references :client
-      t.references :user
+      t.string :voucher_number
+      t.string :decoder_number_one
+      t.string :decoder_number_two
+      t.string :smartcard_number_one
+      t.string :smartcard_number_two
       t.string :installation_number
       t.decimal "cost_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
       t.decimal "selling_total", :precision => 8, :scale => 2, :default => 0.0, :null => false

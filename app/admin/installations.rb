@@ -22,8 +22,12 @@ ActiveAdmin.register Installation do
   form do |f|
     f.inputs "Details" do
       f.input :installation_type
-      f.input :client
-      f.input :user
+      f.input :client_id
+      f.input :voucher_number
+      f.input :decoder_number_one
+      f.input :decoder_number_two
+      f.input :smartcard_number_one
+      f.input :smartcard_number_two
       f.input :cost_total
       f.input :selling_total
       f.input :created_at
