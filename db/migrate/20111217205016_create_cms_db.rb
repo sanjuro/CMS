@@ -11,7 +11,16 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string :telephone_mobile
       t.string :email_address
       t.string :passport_number
-      t.boolean "is_smp", :default => false
+      t.string :unit_number
+      t.string :street_name
+      t.string :suburb
+      t.string :city
+      t.string :province
+      t.string :postal_code
+      t.string :latitude
+      t.string :longitude
+      t.boolean :is_smp, :default => false
+      t.string :smp_number
       
       t.timestamps
     end
@@ -58,20 +67,6 @@ class CreateCmsDb < ActiveRecord::Migration
     create_table :installation_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end    
-
-    create_table :locations, :options => "ENGINE=INODB" do |t|
-      t.references :client
-      t.string :unit_number
-      t.string :street_name
-      t.string :suburb
-      t.string :city
-      t.string :province
-      t.string :postal_code
-      t.string :latitude
-      t.string :longitude
-
-      t.timestamps
-    end  
     
     create_table "products", :force => true do |t|
       t.references :product_type

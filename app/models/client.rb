@@ -1,17 +1,21 @@
 class Client < ActiveRecord::Base
   
   attr_accessible :client_number, :client_type, :registered_name, :id_number,
-                  :telephone_work, :telephone_home, :email_address, :is_smp,
+                  :telephone_work, :telephone_home, :email_address, :is_smp, :smp_number,
+                  :unit_number, :street_name, :suburb, :city,
+                  :province, :postal_code, :latitude, :longitude,
                   :telephone_mobile, :passport_number, :created_at, 
                   :updated_at, :locations_attributes
                   
-  validates :registered_name,  :presence => true  
-  validates :id_number,  :presence => true                  
+  validates :registered_name,  :presence => true, 
+                               :length => {
+                                  :minimum   => 3,
+                                  :maximum   => 20,
+                                  :too_short => "must have at least %{count} characters",
+                                  :too_long  => "must have at most %{count} characters"
+                                }              
   
-  has_many :locations, :dependent => :destroy
   has_many :installations, :dependent => :destroy
-  
-  accepts_nested_attributes_for :locations, :allow_destroy => true
   
   before_create :generate_client_number
   

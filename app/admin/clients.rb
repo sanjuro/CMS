@@ -5,14 +5,15 @@ ActiveAdmin.register Client do
   scope :all, :default => true
  
   # filter :order_items, :as => :select, :collection => lambda{ Order.order_items }
+  filter :client_number
   filter :registered_name
-  filter :email_address
+  filter :street_name
 
   # Customize columns displayed on the index screen in the table
   index do
     column :client_number
     column :registered_name
-    column :email_address
+    column :street_name
     default_actions   
   end
   
@@ -22,7 +23,8 @@ ActiveAdmin.register Client do
         row("Number") { client.client_number }
         row("Name") { client.registered_name }
         row("ID Number") { client.id_number }  
-        row("SMP") { client.is_smp }      
+        row("SMP") { client.is_smp }     
+        row("Street") { client.street_name }  
         row("Created At") { client.created_at }
       end
     end
@@ -34,14 +36,17 @@ ActiveAdmin.register Client do
         row("Telephone Mobile") { client.telephone_mobile }
         row("Email Address") { client.email_address }
       end
-    end   
+    end 
+    
+    active_admin_comments  
   end  
   
   form do |f|
     f.inputs "Details" do
       f.input :registered_name
-      f.input :id_number
+      f.input :id_number, :label => 'ID Number'
       f.input :is_smp
+      f.input :smp_number, :label => 'SMP Number'
       f.input :created_at
     end
     f.inputs "Contact" do
@@ -50,18 +55,15 @@ ActiveAdmin.register Client do
       f.input :telephone_mobile 
       f.input :email_address 
     end
-    f.inputs "Locations" do
-      f.has_many :locations do |i|
-        i.input :_destroy, :as => :boolean, :label => "Delete this item" unless i.object.id.nil?
-        i.input :unit_number
-        i.input :street_name
-        i.input :suburb
-        i.input :city
-        i.input :province
-        i.input :postal_code
-        i.input :latitude
-        i.input :longitude
-      end
+    f.inputs "Location" do
+      f.input :unit_number
+      f.input :street_name
+      f.input :suburb
+      f.input :city
+      f.input :province
+      f.input :postal_code
+      f.input :latitude
+      f.input :longitude
     end
     f.buttons
   end  

@@ -61,7 +61,16 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.string   "telephone_mobile"
     t.string   "email_address"
     t.string   "passport_number"
+    t.string   "unit_number"
+    t.string   "street_name"
+    t.string   "suburb"
+    t.string   "city"
+    t.string   "province"
+    t.string   "postal_code"
+    t.string   "latitude"
+    t.string   "longitude"
     t.boolean  "is_smp",           :default => false
+    t.string   "smp_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,20 +110,6 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.string   "first_name"
     t.string   "second_name"
     t.string   "contact_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "locations", :force => true do |t|
-    t.integer  "client_id"
-    t.string   "unit_number"
-    t.string   "street_name"
-    t.string   "suburb"
-    t.string   "city"
-    t.string   "province"
-    t.string   "postal_code"
-    t.string   "latitude"
-    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
