@@ -20,11 +20,72 @@ header
     background-image: -moz-linear-gradient(#00A0D1, #008DB8);
     background-repeat: no-repeat;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    clear: both;
     height: 60px;
     left: 0;
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
+}
+
+section {
+  margin-top: 1em;
+  font-size: 110%;
+  padding: 20px;
+  background: #fff;
+}
+
+em{
+    color: #00A0D1;
+    font-style: normal;
+}
+
+ul {
+	list-style-type: none !important;
+}
+
+#logo {
+    color: #FFFFFF;
+    float: left;
+    font: 900 45px sommet-slab,kulturista-web,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: -1px;
+    margin: 0px 0 30px -4px;
+    padding-left: 20px;
+    text-decoration: none;
+    text-shadow: 0 2px 2px #39677F;	
+}
+#container {
+	width: 100%;
+}
+#sidebar {
+	padding-top: 20px;	
+	margin-left: -100px;
+	width: 20%;
+}
+
+#main {
+	padding-top: 20px;
+	width: 70%;
+}
+
+/* Links */
+a {
+  color: #069;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#logo a {
+	color: #FFF;
+}
+
+#logo a:hover {
+  text-decoration: none;
+  text-shadow: 0 4px 4px #000;	
+  -moz-transition: opacity 0.25s linear 0s;
 }
 
 /* Navigation */
@@ -61,4 +122,73 @@ nav ul li a {
 
 nav ul li a:hover {
   text-decoration: underline;
+}
+
+/* Forms */
+
+input {
+	line-height: 17px !important; 
+}
+
+.field {
+	padding: 10px 0px;
+}
+
+.actions {
+	float: left;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 10px;
+  width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer nav {
+  float: none;
+}
+
+footer nav ul li a {
+	color: #069;
+}
+
+footer a:visited {
+	color: #069;
+}
+
+/* All Purpose */
+.error, .alert, .notice, .success, .info, #error_explanation, .print_pdf_button  {border-radius: 4px 4px 4px 4px;border-style: solid;border-width: 1px;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;color:#FFF;padding:0.8em;margin-bottom:1em;}
+.error, .alert, #error_explanation {background-color: #C43C35;
+    background-image: -moz-linear-gradient(center top , #EE5F5B, #C43C35);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
+.notice, .infom, .print_pdf_button {    background-color: #339BB9;
+    background-image: -moz-linear-gradient(center top , #5BC0DE, #339BB9);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
+.success {background-color: #57A957;
+    background-image: -moz-linear-gradient(center top , #62C462, #57A957);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
+.clearer {clear:both;}
+.column{float: left;}
+.blank_slate {
+    border: 1px dashed #DADADA;
+    border-radius: 3px 3px 3px 3px;
+    color: #AAAAAA;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 14px 25px;
+    text-align: center;
 }

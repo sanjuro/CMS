@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   
   def index
+    @title = "Clients"
     @clients = Client.all
    
     respond_to do |format|
@@ -11,6 +12,7 @@ class ClientsController < ApplicationController
   end
   
   def new
+    @title = "New Client"
     @client = Client.new
    
     respond_to do |format|
@@ -22,6 +24,7 @@ class ClientsController < ApplicationController
   
   def show
     @client = Client.find(params[:id])
+    @title = "Showing " + @client.name + ' ' + @client.surname
     
     respond_to do |format|
       format.html # show.html.erb

@@ -9,8 +9,6 @@ Cms::Application.routes.draw do
   root :to => "pages#home"
   
   get 'home' => 'pages#home', :as => :homepage
-  get 'contact' => 'pages#contact', :as => :contactpage
-  get 'about' => 'pages#about', :as => :aboutpage
   get 'news' => 'pages#news', :as => :newspage
   
   resources :clients

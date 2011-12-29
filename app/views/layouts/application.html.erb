@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CMS</title>
+  <title>CMS | <%= @title %></title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery-1.7.1.min.js" %>
@@ -11,22 +11,27 @@
 <body>
 	<header>
 		<div id="logo">
-			<%= image_tag "emblem.png" %>
 			<%= link_to('CMS', root_path )  %>
 		</div>
         <nav>
-          <%= render "shared/navigation" %>
+          <%= render "shared/topnavigation" %>
         </nav>
 	</header>
-    <div class="container">
-      <section class="round">
-         <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-        <%= yield %>
-      </section>
+		<div id="container">
+    	<div id="sidebar" class="column">
+    		<%= render "shared/navigation" %>
+    	</div>
+      	<div id="main" class="column">
+	         <% flash.each do |key, value| %>
+	          <div class="flash <%= key %>"><%= value %></div>
+	        <% end %>
+	        <%= yield %>
+      	</div>
+      	</div>
+      	<div class="clearer"></div>
+     <footer>
       <%= render 'shared/footer' %>
-    </div>
+     </footer>
   </body>
 </html>
 </html>
