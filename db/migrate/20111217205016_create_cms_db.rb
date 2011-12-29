@@ -4,13 +4,19 @@ class CreateCmsDb < ActiveRecord::Migration
     create_table :clients, :options => "ENGINE=INNODB" do |t|
       t.references :client_type
       t.string :client_number
-      t.string :registered_name
+      t.string :title
+      t.string :initials
+      t.string :name
+      t.string :surname
       t.string :id_number
+      t.boolean :is_smp, :default => false
+      t.string :smp_number    
+      t.string :smp_rep_code 
       t.string :telephone_home
-      t.string :telephone_work
-      t.string :telephone_mobile
+      t.string :fax
+      t.string :mobile_number_one
+      t.string :mobile_number_two
       t.string :email_address
-      t.string :passport_number
       t.string :unit_number
       t.string :street_name
       t.string :suburb
@@ -19,8 +25,6 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string :postal_code
       t.string :latitude
       t.string :longitude
-      t.boolean :is_smp, :default => false
-      t.string :smp_number
       
       t.timestamps
     end
@@ -39,13 +43,15 @@ class CreateCmsDb < ActiveRecord::Migration
     
     create_table :installations, :options => "ENGINE=INNODB" do |t|
       t.references :installation_type
+      t.references :lnb_type
       t.references :client
+      t.string :installation_number
       t.string :voucher_number
       t.string :decoder_number_one
       t.string :decoder_number_two
       t.string :smartcard_number_one
       t.string :smartcard_number_two
-      t.string :installation_number
+      t.string :lnb_no 
       t.decimal "cost_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
       t.decimal "selling_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
       
@@ -71,6 +77,10 @@ class CreateCmsDb < ActiveRecord::Migration
     create_table :installation_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end    
+    
+    create_table :lnb_types, :options => "ENGINE=INODB" do |t|
+      t.string :title
+    end
     
     create_table "products", :force => true do |t|
       t.references :product_type

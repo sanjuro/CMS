@@ -3,7 +3,8 @@ class Installation < ActiveRecord::Base
   attr_accessible :id, :installation_number, :installation_type_id, :client_id, 
                   :cost_total, :selling_total, :voucher_number, :created_at, 
                   :decoder_number_one, :decoder_number_two,
-                  :smartcard_number_one, :smartcard_number_two, 
+                  :smartcard_number_one, :smartcard_number_two,
+                  :lnb_no, :lnb_type, 
                   :updated_at, :installation_items_attributes
                   
   belongs_to :client, :foreign_key => "client_id", :class_name => "Client"

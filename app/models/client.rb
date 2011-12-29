@@ -1,11 +1,11 @@
 class Client < ActiveRecord::Base
   
-  attr_accessible :client_number, :client_type, :registered_name, :id_number,
-                  :telephone_work, :telephone_home, :email_address, :is_smp, :smp_number,
+  attr_accessible :client_number, :client_type, :title, :intials, :name, :surname, :id_number,
+                  :is_smp, :smp_no, :smp_rep_code,
+                  :fax, :telephone_home, :mobile_number_one, :mobile_number_two, :email_address,
                   :unit_number, :street_name, :suburb, :city,
                   :province, :postal_code, :latitude, :longitude,
-                  :telephone_mobile, :passport_number, :created_at, 
-                  :updated_at, :locations_attributes
+                  :created_at, :updated_at
                   
   validates :registered_name,  :presence => true, 
                                :length => {

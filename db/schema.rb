@@ -54,13 +54,19 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
   create_table "clients", :force => true do |t|
     t.integer  "client_type_id"
     t.string   "client_number"
-    t.string   "registered_name"
+    t.string   "title"
+    t.string   "initials"
+    t.string   "name"
+    t.string   "surname"
     t.string   "id_number"
+    t.boolean  "is_smp",            :default => false
+    t.string   "smp_number"
+    t.string   "smp_rep_code"
     t.string   "telephone_home"
-    t.string   "telephone_work"
-    t.string   "telephone_mobile"
+    t.string   "fax"
+    t.string   "mobile_number_one"
+    t.string   "mobile_number_two"
     t.string   "email_address"
-    t.string   "passport_number"
     t.string   "unit_number"
     t.string   "street_name"
     t.string   "suburb"
@@ -69,8 +75,6 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.string   "postal_code"
     t.string   "latitude"
     t.string   "longitude"
-    t.boolean  "is_smp",           :default => false
-    t.string   "smp_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -94,13 +98,15 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
 
   create_table "installations", :force => true do |t|
     t.integer  "installation_type_id"
+    t.integer  "lnb_type_id"
     t.integer  "client_id"
+    t.string   "installation_number"
     t.string   "voucher_number"
     t.string   "decoder_number_one"
     t.string   "decoder_number_two"
     t.string   "smartcard_number_one"
     t.string   "smartcard_number_two"
-    t.string   "installation_number"
+    t.string   "lnb_no"
     t.decimal  "cost_total",           :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.decimal  "selling_total",        :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.datetime "created_at"
@@ -116,6 +122,10 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.string   "contact_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "lnb_types", :force => true do |t|
+    t.string "title"
   end
 
   create_table "product_types", :force => true do |t|

@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cms</title>
+  <title>CMS</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.7.1.min.js" %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
 </head>
 <body>
-
-<%= yield %>
-
-</body>
+	<header>
+		<div id="logo">
+			<%= image_tag "emblem.png" %>
+			<%= link_to('CMS', root_path )  %>
+		</div>
+        <nav>
+          <%= render "shared/navigation" %>
+        </nav>
+	</header>
+    <div class="container">
+      <section class="round">
+         <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </section>
+      <%= render 'shared/footer' %>
+    </div>
+  </body>
+</html>
 </html>

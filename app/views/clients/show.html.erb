@@ -1,0 +1,15 @@
+<p class="notice"><%= notice %></p>
+ 
+<p>
+  <b>Registeredname:</b>
+  <%= @client.registeredname %>
+</p>
+ 
+<p>
+  <b>Email:</b>
+  <%= @client.email_address %>
+</p>
+ 
+ 
+<%= link_to 'Edit', edit_post_path(@client) %> |
+<%= link_to 'Back', clients_path %>

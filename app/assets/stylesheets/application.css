@@ -5,3 +5,60 @@
  *= require_self
  *= require_tree . 
 */
+body {
+    background: #DFEEF6;
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    padding-top: 40px;
+}
+header
+{
+    background-color: #008DB8;
+    background-image: -moz-linear-gradient(#00A0D1, #008DB8);
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* Navigation */
+nav {
+  float: right;
+}
+
+nav {
+  color: white;
+  line-height: 30px;
+  letter-spacing: -1px;
+  text-decoration: none;
+  text-shadow: 0 2px 2px #39677F;	
+  padding: 10px 0.7em;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  color: #FFF;
+  padding: 5px 5px;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}

@@ -41,6 +41,7 @@ ActiveAdmin.register Installation do
         i.input :selling_price
       end
     end
+    f.buttons
   end
 
 end

@@ -21,10 +21,10 @@ ActiveAdmin.register Client do
     panel "Client Details" do
       attributes_table_for client do
         row("Number") { client.client_number }
-        row("Name") { client.registered_name }
+        row("Title") { client.title }
+        row("Name") { client.name }
+        row("Surname") { client.surname }
         row("ID Number") { client.id_number }  
-        row("SMP") { client.is_smp }     
-        row("Street") { client.street_name }  
         row("Created At") { client.created_at }
       end
     end
@@ -32,8 +32,9 @@ ActiveAdmin.register Client do
     panel "Contact Details" do
       attributes_table_for client do
         row("Telephone Home") { client.telephone_home }
-        row("Telephone Work") { client.telephone_work }
-        row("Telephone Mobile") { client.telephone_mobile }
+        row("Telephone Mobile 1") { client.mobile_number_one }
+        row("Telephone Mobile 2") { client.mobile_number_two }
+        row("Fax") { client.fax }
         row("Email Address") { client.email_address }
       end
     end
@@ -56,17 +57,22 @@ ActiveAdmin.register Client do
   
   form do |f|
     f.inputs "Details" do
-      f.input :registered_name
+      f.input :title
+      f.input :initials
+      f.input :name
+      f.input :surname
       f.input :id_number, :label => 'ID Number'
       f.input :is_smp
       f.input :smp_number, :label => 'SMP Number'
+      f.input :smp_rep_code, :label => 'SMP Rep Code'
       f.input :created_at
     end
     f.inputs "Contact" do
-      f.input :telephone_home  
-      f.input :telephone_work  
-      f.input :telephone_mobile 
-      f.input :email_address 
+      f.input :telephone_home, :label => 'Home No.'
+      f.input :mobile_number_one, :label => 'Cell No. 1'  
+      f.input :mobile_number_two, :label => 'Cell No. 2'  
+      f.input :fax, :label => 'Fax No.' 
+      f.input :email_address, :label => 'Email' 
     end
     f.inputs "Location" do
       f.input :unit_number
