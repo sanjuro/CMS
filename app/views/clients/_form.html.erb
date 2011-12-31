@@ -10,19 +10,101 @@
   </div>
   <% end %>
  
-  <div class="field">
-    <%= f.label :name %><br />
+  <fieldset class="inputs" name="Details">
+  <legend><span>Details</span></legend>
+  <ol>
+	<li id="client_title_input" class="string optional">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+	</li>
+	<li id="client_name_input" class="string optional">
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email_address %><br />
+	</li>
+	<li id="client_surname_input" class="string optional">
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+	</li>
+	<li id="client_is_smp_input" class="string optional">
+    <%= f.label :is_smp %>
+    <%= f.text_field :is_smp %>
+	</li>
+	<li id="client_smp_number_input" class="string optional">
+    <%= f.label :smp_number %>
+    <%= f.text_field :smp_number %>
+	</li>
+	<li id="client_smp_rep_code_input" class="string optional">
+    <%= f.label :smp_rep_code %>
+    <%= f.text_field :smp_rep_code %>
+	</li>
+  </ol>
+  </fieldset>
+  
+  <fieldset class="inputs" name="Contact">
+  <legend><span>Contact</span></legend>
+  <ol>
+	<li id="client_email_address_input" class="string optional">
+    <%= f.label :email_address %>
     <%= f.text_field :email_address %>
-  </div>
-  <div class="field">
-    <%= f.label :telephone_home %><br />
+	</li>
+	<li id="client_telephone_home_input" class="string optional">
+    <%= f.label :telephone_home %>
     <%= f.text_field :telephone_home %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	</li>
+	<li id="client_mobile_number_one_input" class="string optional">
+    <%= f.label :mobile_number_one %>
+    <%= f.text_field :mobile_number_one %>
+	</li>
+	<li id="client_mobile_number_two_input" class="string optional">
+    <%= f.label :mobile_number_two %>
+    <%= f.text_field :mobile_number_two %>
+	</li>
+	<li id="client_fax_input" class="string optional">
+    <%= f.label :fax %>
+    <%= f.text_field :fax %>
+	</li>
+  </ol>
+  </fieldset>  
+  
+  <fieldset class="inputs" name="Address">
+  <legend><span>Address</span></legend>
+  <ol>
+	<li id="client_unit_number_input" class="string optional">
+    <%= f.label :unit_number %>
+    <%= f.text_field :unit_number %>
+	</li>
+	<li id="client_street_name_input" class="string optional">
+    <%= f.label :street_name %>
+    <%= f.text_field :street_name %>
+	</li>
+	<li id="client_suburb_input" class="string optional">
+    <%= f.label :suburb %>
+    <%= f.text_field :suburb %>
+	</li>
+	<li id="client_city_input" class="string optional">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+	</li>
+	<li id="client_province_input" class="string optional">
+    <%= f.label :province %>
+    <%= f.text_field :province %>
+	</li>
+	<li id="client_postal_code_input" class="string optional">
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code %>
+	</li>
+  </ol>
+  </fieldset> 
+  
+  <fieldset class="buttons">
+  <ol>
+  	<li class="commit">
+  		<%= f.submit %>
+  	</li>
+  	<li class="cancel">
+  		<%= link_to 'Back', clients_path %>
+  	</li>
+  </ol>
+  </fieldset>
+
 <% end %>

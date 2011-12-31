@@ -1,15 +1,113 @@
-<p class="notice"><%= notice %></p>
+<div class="panel">
+	<h3>Client Details</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_client_2" class="attributes_table client">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Title:</b></th>
+				<td><%= @client.title %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Name:</b></th>
+				<td><%= @client.name %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Surname:</b></th>
+				<td><%= @client.surname %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>SMP Number:</b></th>
+				<td><%= @client.smp_number %></td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel">
+	<h3>Contact Detail</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_client_2" class="attributes_table client">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Email Address:</b></th>
+				<td><%= @client.email_address %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Home Tel.:</b></th>
+				<td><%= @client.telephone_home %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Cell No. 1:</b></th>
+				<td><%= @client.mobile_number_one %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Cell No. 2:</b></th>
+				<td><%= @client.mobile_number_one %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Fax:</b></th>
+				<td><%= @client.fax %></td>
+			</tr>			
+			</tbody>
+		</table>
+		</div>
+	</div>	
+</div>
+
+<div class="panel"> 
+	<h3>Address</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_client_2" class="attributes_table client">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Unit Number:</b></th>
+				<td><%= @client.unit_number %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Street Name:</b></th>
+				<td><%= @client.street_name %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Suburb:</b></th>
+				<td><%= @client.suburb %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>City:</b></th>
+				<td><%= @client.city %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Province:</b></th>
+				<td><%= @client.province %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Postal Code:</b></th>
+				<td><%= @client.postal_code %></td>
+			</tr>						
+			</tbody>
+		</table>
+		</div>
+	</div>	
+</div>
  
-<p>
-  <b>Registeredname:</b>
-  <%= @client.registeredname %>
-</p>
- 
-<p>
-  <b>Email:</b>
-  <%= @client.email_address %>
-</p>
- 
- 
-<%= link_to 'Edit', edit_post_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back to list', clients_path %>

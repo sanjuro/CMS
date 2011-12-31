@@ -7,7 +7,14 @@ class Client < ActiveRecord::Base
                   :province, :postal_code, :latitude, :longitude,
                   :created_at, :updated_at
                   
-  validates :registered_name,  :presence => true, 
+  validates :name,  :presence => true, 
+                               :length => {
+                                  :minimum   => 3,
+                                  :maximum   => 20,
+                                  :too_short => "must have at least %{count} characters",
+                                  :too_long  => "must have at most %{count} characters"
+                                } 
+  validates :surname,  :presence => true, 
                                :length => {
                                   :minimum   => 3,
                                   :maximum   => 20,
@@ -18,6 +25,14 @@ class Client < ActiveRecord::Base
   has_many :installations, :dependent => :destroy
   
   before_create :generate_client_number
+  
+  def self.search(search,type)
+    if search
+      where('name LIKE ? OR surname LIKE ? OR street_name LIKE ? ', "%#{search}%","%#{search}%","%#{search}%")                                
+    else
+      scoped
+    end        
+  end
   
   def generate_client_number
     record = true

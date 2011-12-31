@@ -1,32 +1,3 @@
-<% if @clients.empty? %>
-	<h3>
-	<span class="blank_slate">
-		There are no Clients yet. <%= link_to 'Create One', new_client_path %>
-	</span>
-	</h3>
-<% else %>
-<h1>Listing clients</h1>
-
-<table> 
-	<tr>
-		<th>Mr</th> 
-		<th>Name</th> 
-		<th>Surname</th> 
-		<th>Street Name</th> 
-		<th></th>
-	</tr>
-	
-	<% @clients.each do |client| %>
-		<tr>
-			<td><%= client.title %></td>
-			<td><%= client.name %></td> 
-			<td><%= client.surname %></td> 
-			<td><%= link_to 'Show', client %></td> 
-			<td><%= link_to 'Edit', edit_client_path(client) %></td> 
-			<td><%= link_to 'Destroy', client, :confirm => 'Are you sure?',:method => :delete %></td> 
-		</tr>
-	<% end %> 
-</table>
-<br /> 
-<%= link_to 'New Client', new_client_path %>
-<% end %>
+<div id="clients"> 
+	<%= render :partial => 'clients/clients', %>
+</div>

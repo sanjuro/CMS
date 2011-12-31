@@ -12,7 +12,7 @@ ActiveAdmin.register Client do
   # Customize columns displayed on the index screen in the table
   index do
     column :client_number
-    column :registered_name
+    column :surname
     column :street_name
     default_actions   
   end

@@ -54,24 +54,35 @@ ul {
     text-decoration: none;
     text-shadow: 0 2px 2px #39677F;	
 }
+
 #container {
 	width: 100%;
 }
+
+#search {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #E5E5E5;
+    color: #38678B;
+    font-size: 20px;
+    height: 21px;	
+    padding: 30px 40px
+}
+
 #sidebar {
-	padding-top: 20px;	
-	margin-left: -100px;
+	padding-left: 30px;
+	padding-top: 30px;	
 	width: 20%;
 }
 
 #main {
-	padding-top: 20px;
+	padding-top: 30px;
 	width: 70%;
 }
 
 /* Links */
 a {
   color: #069;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
@@ -115,19 +126,67 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #FFF;
+  color: #FFF !important;
   padding: 5px 5px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 nav ul li a:hover {
   text-decoration: underline;
 }
 
+ul#sidebarnav {
+	padding-left: 0px;
+}
+
+ul#sidebarnav li {
+	font-size: 13px;
+	line-height: 29px;
+    opacity: 1;
+    padding-left: 10px;
+}
+
+ul#sidebarnav li a {
+	text-decoration: none;
+}
+
+ul#sidebarnav li:hover {
+	background-color: #EEEEEE;
+}
+
 /* Forms */
 
 input {
+	border: medium none;
 	line-height: 17px !important; 
+    left: 0;
+    margin: 0;
+    outline: medium none;
+}
+#search .label {
+	padding-right: 170px;	
+}
+
+input#search {
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	font-size: 14px;
+	height: 27px;
+	padding: 0px 10px;
+	width: 450px;
+	-moz-box-sizing: content-box;
+    -moz-padding-end: 0;
+    -moz-padding-start: 0;
+}
+
+#search input[type="submit"]  {
+	background-color: #4D90FE;
+    background-image: -moz-linear-gradient(center top , #4D90FE, #4787ED);
+    border: 1px solid #3079ED;
+    border-radius: 3px;
+	font-size: 14px;
+	padding: 5px 10px;
 }
 
 .field {
@@ -157,6 +216,34 @@ footer nav ul li a {
 
 footer a:visited {
 	color: #069;
+}
+
+/* Table */
+th {
+    background: -moz-linear-gradient(-90deg, #EFEFEF, #DFE1E2) repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #EDEDED;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    color: #5E6469;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 140%;
+    margin-bottom: 0.5em;
+    padding: 5px 12px 3px;
+    text-align: left;
+    text-shadow: 0 1px 0 white;
+    vertical-align: middle !important;	
+}
+
+tr {
+	border-bottom: 1px solid #DFE1E2 !important;
+	line-height: 30px;
+}
+
+tr.odd { background: none repeat scroll 0 0 #F5F5F5; }
+
+.attributes_table table th, .attributes_table table td {
+    border-bottom: 1px solid #E8E8E8;
+    padding: 8px 12px 6px;
 }
 
 /* All Purpose */
