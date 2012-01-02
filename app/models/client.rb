@@ -44,4 +44,8 @@ class Client < ActiveRecord::Base
     self.client_number
   end
   
+  def fullname
+    self.title + ' ' + self.name + ' ' + self.surname
+  end
+  
 end

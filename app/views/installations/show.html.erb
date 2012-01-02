@@ -1,0 +1,64 @@
+<div class="panel">
+	<h3>Installtion Details</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_installation_2" class="attributes_table installation">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Installation Type:</b></th>
+				<td><%= @installation.installation_type %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Installation Number:</b></th>
+				<td><%= @installation.installation_number %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Client:</b></th>
+				<td><%= @installation.client_id %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Voucher Number:</b></th>
+				<td><%= @installation.voucher_number %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Decoder Number One:</b></th>
+				<td><%= @installation.decoder_number_one %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Smartcard Number One:</b></th>
+				<td><%= @installation.smartcard_number_one %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Decoder Number Two:</b></th>
+				<td><%= @installation.decoder_number_two %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Smartcard Number Two:</b></th>
+				<td><%= @installation.smartcard_number_two %></td>
+			</tr>
+			
+			<tr>
+				<th><b>LNB Number:</b></th>
+				<td><%= @installation.lnb_no %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Created At:</b></th>
+				<td><%= @installation.created_at %></td>
+			</tr>			
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_installation_path(@installation) %> |
+<%= link_to 'Back to list', installations_path %>

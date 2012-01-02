@@ -1,0 +1,78 @@
+<%= form_for(@installation) do |f| %>
+  <% if @installation.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@installation.errors.count, "error") %> prohibited this installation from being saved:</h2>
+    <ul>
+    <% @installation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <fieldset class="inputs" name="Details">
+  <legend><span>Details</span></legend>
+  <ol>
+	<li id="installation_installation_type_input" class="string optional">
+    <%= f.label :installation_type %>
+    <%= f.select(:installation_type_id, [['TOP TV', 1], ['Ellies', 2]]) %>
+	</li>
+	<li id="installation_client_id_input" class="string optional">
+    <%= f.label :client_id %>
+    <%= f.text_field :client_id %>
+	</li>
+	<li id="installation_installation_number_input" class="string optional">
+    <%= f.label :installation_number %>
+    <%= f.text_field :installation_number %>
+	</li>
+	<li id="installation_voucher_number_input" class="string optional">
+    <%= f.label :voucher_number %>
+    <%= f.text_field :voucher_number %>
+	</li>
+	<li id="installation_decoder_number_one_input" class="string optional">
+    <%= f.label :decoder_number_one %>
+    <%= f.text_field :decoder_number_one %>
+	</li>
+	<li id="installation_decoder_number_two_input" class="string optional">
+    <%= f.label :decoder_number_two %>
+    <%= f.text_field :decoder_number_two %>
+	</li>
+	<li id="installation_smartcard_number_one_input" class="string optional">
+    <%= f.label :smartcard_number_one %>
+    <%= f.text_field :smartcard_number_one %>
+	</li>
+	<li id="installation_smartcard_number_two_input" class="string optional">
+    <%= f.label :smartcard_number_two %>
+    <%= f.text_field :smartcard_number_two %>
+	</li>
+	<li id="installation_lnb_no_input" class="string optional">
+    <%= f.label :lnb_no %>
+    <%= f.text_field :lnb_no %>
+	</li>
+	<li id="installation_cost_total_input" class="string optional">
+    <%= f.label :cost_total %>
+    <%= f.text_field :cost_total %>
+	</li>
+	<li id="installation_selling_total_input" class="string optional">
+    <%= f.label :selling_total %>
+    <%= f.text_field :selling_total %>
+	</li>
+	<li id="installation_created_at_input" class="string optional">
+    <%= f.label :created_at %>
+    <%= f.date_select  :created_at %>
+	</li>
+  </ol>
+  </fieldset>
+  
+  <fieldset class="buttons">
+  <ol>
+  	<li class="commit">
+  		<%= f.submit %>
+  	</li>
+  	<li class="cancel">
+  		<%= link_to 'Back', clients_path %>
+  	</li>
+  </ol>
+  </fieldset>
+
+<% end %>

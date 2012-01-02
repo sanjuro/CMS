@@ -18,13 +18,11 @@
 	</header>
 		<div id="container">
 		<div id="search">
+		<% if user_signed_in? %>
 			<div>
-				<%= form_tag clients_path, :method => 'get', :id => "clients_search" do %>
-					<span class="label">Search</span>
-					<%= text_field_tag :search, params[:search] %>
-	   				<%= submit_tag "Search", :name => nil %>
-   				<% end %>
+				<%= render @controller + "/search" %>
 			</div>
+		<% end %>
 		</div>
     	<div id="sidebar" class="column">
     		<%= render "shared/navigation" %>

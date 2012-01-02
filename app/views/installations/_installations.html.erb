@@ -1,0 +1,38 @@
+<% if @installations.empty? %>
+	<h3>
+	<span class="blank_slate">
+		There are no Installations yet. <%= link_to 'Create One', new_installation_path %>
+	</span>
+	</h3>
+<% else %>
+<h1>Listing installations</h1>
+
+<table> 
+	<tr>
+		<th>Installation Number</th> 
+		<th>Installation Type</th> 
+		<th>Client</th> 
+		<th>Decoder Number</th> 
+		<th>Date</th> 
+		<th></th>
+	</tr>
+	
+	<% @installations.each do |installation| %>
+	    <tr class="<%= cycle("even", "odd") %>">
+			<td><%= installation.installation_number %></td>
+			<td><%= installation.installation_type.title %></td> 
+			<td><%= installation.client.fullname %></td>
+			<td><%= installation.decoder_number_one %></td> 
+			<td><%= installation.created_at %></td>
+			<td>
+				<%= link_to 'Show', installation %> 
+				<%= link_to 'Edit', edit_installation_path(installation) %>
+				<%= link_to 'Delete', installation, :confirm => 'Are you sure?',:method => :delete %>
+			</td> 
+		</tr>
+		
+	<% end %> 
+</table>
+
+<%= link_to 'New Installation', new_client_path %>
+<% end %>

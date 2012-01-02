@@ -4,6 +4,7 @@ class ClientsController < ApplicationController
   
   def index
     @title = "Clients"
+    @controller = "clients"
     @clients = Client.search(params[:search],params[:fieldtype]).order('created_at DESC')
    
     respond_to do |format|
@@ -15,6 +16,7 @@ class ClientsController < ApplicationController
   
   def new
     @title = "New Client"
+    @controller = "clients"
     @client = Client.new
    
     respond_to do |format|
@@ -25,6 +27,7 @@ class ClientsController < ApplicationController
   end
   
   def create
+    @controller = "clients"
     @client = Client.new(params[:client])
    
     respond_to do |format|
@@ -42,6 +45,7 @@ class ClientsController < ApplicationController
   end
   
   def show
+    @controller = "clients"
     @client = Client.find(params[:id])
     @title = "Showing " + @client.name + ' ' + @client.surname
     
@@ -53,12 +57,15 @@ class ClientsController < ApplicationController
   end
   
   def edit
+    @controller = "clients"
     @client = Client.find(params[:id])
     @title = "Editing " + @client.name + ' ' + @client.surname
   end
   
   def update
+    @controller = "clients"
     @client = Client.find(params[:id])
+    @title = "Editing " + @client.name + ' ' + @client.surname
    
     respond_to do |format|
       if @client.update_attributes(params[:client])
@@ -75,6 +82,7 @@ class ClientsController < ApplicationController
 
  
   def destroy
+    @controller = "clients"
     @client = Client.find(params[:id])
     @client.destroy
    

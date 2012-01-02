@@ -14,6 +14,8 @@ Cms::Application.routes.draw do
   get 'news' => 'pages#news', :as => :newspage
   
   resources :clients
+  
+  resources :installations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
