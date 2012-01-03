@@ -3,7 +3,7 @@ class CreateCmsDb < ActiveRecord::Migration
   def self.up
     create_table :clients, :options => "ENGINE=INNODB" do |t|
       t.references :client_type
-      t.string :client_number
+      t.string :client_number, :unique => true
       t.string :title
       t.string :initials
       t.string :name
@@ -28,6 +28,8 @@ class CreateCmsDb < ActiveRecord::Migration
       
       t.timestamps
     end
+    
+    add_index :clients, :client_number, :unique => true
     
     create_table :client_types, :options => "ENGINE=INODB" do |t|
       t.string :title

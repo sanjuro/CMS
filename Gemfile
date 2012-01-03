@@ -48,10 +48,11 @@ gem 'will_paginate'
 gem 'prawn_rails'
 
 group :development do 
-	gem 'rspec-rails', '2.6.1'
+	gem 'rspec-rails'
 end
 
 group :test do 
-	gem 'rspec-rails', '2.6.1' 
-	gem 'webrat', '0.7.1'
+	gem 'rspec-rails'
+	gem 'webrat'
+	gem 'factory_girl_rails'
 end

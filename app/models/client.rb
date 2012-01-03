@@ -1,4 +1,14 @@
+# == Schema Information
+#
+# Table name: Clients
+#
+# id                 :integer         not null, primary key
+# client_number      :string(255)      not null
+# client_type        :integer(255)      not null
+#
 class Client < ActiveRecord::Base
+  
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   attr_accessible :client_number, :client_type, :title, :intials, :name, :surname, :id_number,
                   :is_smp, :smp_no, :smp_rep_code,
@@ -6,21 +16,24 @@ class Client < ActiveRecord::Base
                   :unit_number, :street_name, :suburb, :city,
                   :province, :postal_code, :latitude, :longitude,
                   :created_at, :updated_at
-                  
-  validates :name,  :presence => true, 
+       
+  validates :client_number, :uniqueness => true
+  validates :name, :presence => true, 
                                :length => {
                                   :minimum   => 3,
                                   :maximum   => 20,
                                   :too_short => "must have at least %{count} characters",
                                   :too_long  => "must have at most %{count} characters"
                                 } 
-  validates :surname,  :presence => true, 
+  validates :surname, :presence => true, 
                                :length => {
                                   :minimum   => 3,
                                   :maximum   => 20,
                                   :too_short => "must have at least %{count} characters",
                                   :too_long  => "must have at most %{count} characters"
-                                }              
+                                }     
+  validates :email_address, :presence => true,
+                            :format => { :with => email_regex }                                      
   
   has_many :installations, :dependent => :destroy
   

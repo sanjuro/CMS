@@ -6,9 +6,12 @@ class Installation < ActiveRecord::Base
                   :smartcard_number_one, :smartcard_number_two,
                   :lnb_no, :lnb_type, 
                   :updated_at, :created_at, :installation_items_attributes
-                  
-  validates :decoder_number_one,  :presence => true
-  validates :smartcard_number_one,  :presence => true
+ 
+  validates :installation_number, :presence => true,
+                                  :uniqueness => true
+  validates :client_id, :presence => true
+  validates :decoder_number_one, :presence => true
+  validates :smartcard_number_one, :presence => true
                   
   belongs_to :client, :foreign_key => "client_id", :class_name => "Client"
   
