@@ -70,8 +70,9 @@ ul {
 
 #sidebar {
 	padding-left: 30px;
+	padding-right: 30px;
 	padding-top: 30px;	
-	width: 20%;
+	width: 18%;
 }
 
 #main {
@@ -361,14 +362,14 @@ form input[type="submit"] {
     text-decoration: none;
     text-shadow: 0 -1px 0 #003366;		
 }
-form input[type="submit"]:hover {
+form input[type="submit"]:hover, .button:hover {
     box-shadow: 0 1px 3px #888888;
     color: #FFFFFF;
 }
 form input[type="submit"]:hover span.icon svg path, form input[type="submit"]:hover span.icon svg polygon, form input[type="submit"]:hover span.icon svg rect, form input[type="submit"]:hover span.icon svg circle {
     fill: white !important;
 }
-form input[type="submit"]:active {
+form input[type="submit"]:active, .button:active {
     box-shadow: 0 1px 2px black inset;
 }
 form .buttons {
@@ -459,6 +460,7 @@ input#search {
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF;
+    cursor: pointer;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 10px;

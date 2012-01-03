@@ -11,4 +11,13 @@ describe PagesController do
     
   end
   
+  describe "GET 'news'" do 
+    
+    it "should be successful" do
+      get 'news'
+      response.should be_success 
+    end
+    
+  end
+  
 end
