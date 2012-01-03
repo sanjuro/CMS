@@ -4,9 +4,10 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+//= require_self
 //= require jquery-1.7.1.min
 //= require jquery_ujs
-//= require_tree .
+//= require highcharts
 $(function() {
   $("#clients_search input").keyup(function() {
     $.get($("#clients_search").attr("action"), $("#clients_search").serialize(), null, "script");

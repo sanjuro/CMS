@@ -1,5 +1,55 @@
 <h1>Home</h1>
-<p>
-	<h3>Please sign in.</h3>
+	<% if user_signed_in? %>
+	<p>
+		<div id="clients_chart" style="width: 760px; height: 300px;"></div>
+	</p>
+	<p>
+		<div id="installations_chart" style="width: 760px; height: 300px;"></div>
+	</p>
+	<% else %>
+		<h3>Please sign in.</h3>		
+	<% end %>
 
-</p>
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  new Highcharts.Chart({
+    chart: { renderTo: 'clients_chart' },
+    title: { text: 'Clients by Day' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Clients' }
+    },
+    tooltip: {
+      formatter: function () {
+        return Highcharts.dateFormat("%B %e %Y", this.x) + ': ' +
+          Highcharts.numberFormat(this.y, 0);
+      }
+    }, 
+	series: [{
+	  pointInterval: <%= 1.day * 1000 %>,
+	  pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+	  data: <%= (3.weeks.ago.to_date..Date.today).map { |date| Client.count_on(date).to_f}.inspect %>
+	 }]
+  });
+  
+  new Highcharts.Chart({
+    chart: { renderTo: 'installations_chart' },
+    title: { text: 'Installations by Day' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Installations' }
+    },
+    tooltip: {
+      formatter: function () {
+        return Highcharts.dateFormat("%B %e %Y", this.x) + ': ' +
+          Highcharts.numberFormat(this.y, 0);
+      }
+    }, 
+	series: [{
+	  pointInterval: <%= 1.day * 1000 %>,
+	  pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+	  data: <%= (3.weeks.ago.to_date..Date.today).map { |date| Installation.count_on(date).to_f}.inspect %>
+	 }]
+  });
+});
+</script>

@@ -34,6 +34,10 @@ class Client < ActiveRecord::Base
     end        
   end
   
+  def self.count_on(date)
+    where("date(created_at) = ?",date).count(:id)
+  end
+  
   def generate_client_number
     record = true
     while record
