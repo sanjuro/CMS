@@ -7,6 +7,8 @@
 <% else %>
 <h1>Listing clients</h1>
 
+<%= will_paginate @clients %>
+
 <table> 
 	<tr>
 		<th>Mr</th> 
@@ -31,6 +33,9 @@
 		
 	<% end %> 
 </table>
+
+<%= will_paginate @clients %>
+<br>
 
 <%= link_to 'New Client', new_client_path, :class => "button" %>
 <% end %>

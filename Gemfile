@@ -44,6 +44,8 @@ gem "meta_search",    '>= 1.1.0.pre'
 
 gem 'will_paginate'
 
+gem 'acts_as_commentable'
+
 # gem 'prawn' # Generates PDF files
 gem 'prawn_rails'
 
@@ -55,4 +57,5 @@ group :test do
 	gem 'rspec-rails'
 	gem 'webrat'
 	gem 'factory_girl_rails'
+	gem 'spork'
 end

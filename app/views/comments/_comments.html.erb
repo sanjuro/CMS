@@ -1,0 +1,17 @@
+<% if @comments.empty? %>
+	<div class="comment">
+		no comments
+	</div>
+<% else %>
+	<% @comments.each do |comment| %>
+		<div class="comment">
+			<div class="comment_body">
+				<%= comment.comment %>
+			</div>
+			<div class="comment_metadata">
+				Posted by <b><%= comment.user.username %></b> about <span><%= distance_of_time_in_words(Time.now, comment.created_at) %> ago</span>
+				<span class="comment_remove"><%= link_to("Remove", comment, :method => :delete, :class => 'action', :confirm => 'Are you sure?') %></span>
+			</div>
+		</div>
+	<% end %>
+<% end %>	

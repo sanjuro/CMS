@@ -5,7 +5,7 @@ class InstallationsController < ApplicationController
   def index
     @controller = "installations"
     @title = "Installations"
-    @installations = Installation.search(params[:search],params[:fieldtype]).order('created_at DESC')
+    @installations = Installation.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 2, :page => params[:page])
    
     respond_to do |format|
       format.html { render :layout => true } # index.html.erb
@@ -47,6 +47,8 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @installation = Installation.find(params[:id])
     @title = "Showing " + @installation.installation_number
+    
+    @comments = @installation.comments.recent.limit(10).all
     
     respond_to do |format|
       format.html # show.html.erb

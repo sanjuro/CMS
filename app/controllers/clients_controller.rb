@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   def index
     @title = "Clients"
     @controller = "clients"
-    @clients = Client.search(params[:search],params[:fieldtype]).order('created_at DESC')
+    @clients = Client.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 2, :page => params[:page])
    
     respond_to do |format|
       format.html { render :layout => true } # index.html.erb
@@ -48,6 +48,8 @@ class ClientsController < ApplicationController
     @controller = "clients"
     @client = Client.find(params[:id])
     @title = "Showing " + @client.name + ' ' + @client.surname
+    
+    @comments = @client.comments.recent.limit(10).all
     
     respond_to do |format|
       format.html # show.html.erb

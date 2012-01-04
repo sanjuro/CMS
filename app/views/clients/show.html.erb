@@ -108,6 +108,15 @@
 		</div>
 	</div>	
 </div>
+
+<div class="panel"> 	
+	<h3>Comments</h3>
+	<div class="panel_body">
+	  	<%= render :partial => 'comments/comments', :locals => {:comments => @comments} %>
+	  	
+		<%= render :partial => 'comments/comment_form', :locals => {:model => @client, :type => 'Client'} %>	
+	</div>
+</div>
  
 <%= link_to 'Edit', edit_client_path(@client), :class => "button" %> |
 <%= link_to 'Back to list', clients_path %>

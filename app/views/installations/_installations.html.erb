@@ -7,6 +7,8 @@
 <% else %>
 <h1>Listing installations</h1>
 
+<%= will_paginate @installations %>
+
 <table> 
 	<tr>
 		<th>Installation Number</th> 
@@ -33,6 +35,9 @@
 		
 	<% end %> 
 </table>
+
+<%= will_paginate @installation %>
+<br>
 
 <%= link_to 'New Installation', new_client_path, :class => "button" %>
 <% end %>

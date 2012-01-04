@@ -8,6 +8,8 @@
 #
 class Client < ActiveRecord::Base
   
+  acts_as_commentable
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   attr_accessible :client_number, :client_type, :title, :intials, :name, :surname, :id_number,

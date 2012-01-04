@@ -16,6 +16,9 @@ Cms::Application.routes.draw do
   resources :clients
   
   resources :installations
+  
+  resources :comments
+  match '/comment/new/' => 'comments#new', :as => :new_comment
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
