@@ -46,6 +46,8 @@ gem 'will_paginate'
 
 gem 'acts_as_commentable'
 
+gem 'breadcrumbs_on_rails'
+
 # gem 'prawn' # Generates PDF files
 gem 'prawn_rails'
 

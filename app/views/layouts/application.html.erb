@@ -32,6 +32,7 @@
     		<%= render "shared/navigation" %>
     	</div>
       	<div id="main" class="column">
+      		 <%= render_breadcrumbs %>
 	         <% flash.each do |key, value| %>
 	          <div class="flash <%= key %>"><%= value %></div>
 	        <% end %>

@@ -2,6 +2,8 @@ class InstallationsController < ApplicationController
   
   before_filter :authenticate_user!
   
+  add_breadcrumb "home", :root_path
+  
   def index
     @controller = "installations"
     @title = "Installations"
@@ -18,6 +20,8 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @title = "New Installation"
     @installation = Installation.new
+    
+    add_breadcrumb "installations", installations_path, :title => "Back to the Index"
    
     respond_to do |format|
       format.html # new.html.erb
@@ -48,6 +52,8 @@ class InstallationsController < ApplicationController
     @installation = Installation.find(params[:id])
     @title = "Showing " + @installation.installation_number
     
+    add_breadcrumb "installations", installations_path, :title => "Back to the Index"
+    
     @comments = @installation.comments.recent.limit(10).all
     
     respond_to do |format|
@@ -61,6 +67,8 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @installation = Installation.find(params[:id])
     @title = "Editing " + @installation.installation_number
+    
+    add_breadcrumb "installations", installations_path, :title => "Back to the Index"
   end
   
   def update

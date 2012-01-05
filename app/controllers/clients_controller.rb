@@ -2,11 +2,15 @@ class ClientsController < ApplicationController
   
   before_filter :authenticate_user!
   
+  add_breadcrumb "home", :root_path
+  
   def index
     @title = "Clients"
     @controller = "clients"
     @clients = Client.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 2, :page => params[:page])
    
+    add_breadcrumb "clients", clients_path, :title => "Back to the Index"
+      
     respond_to do |format|
       format.html { render :layout => true } # index.html.erb
       format.xml  { render :xml => @clients }
@@ -19,6 +23,8 @@ class ClientsController < ApplicationController
     @controller = "clients"
     @client = Client.new
    
+    add_breadcrumb "clients", clients_path, :title => "Back to the Index"
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @client }
@@ -47,9 +53,11 @@ class ClientsController < ApplicationController
   def show
     @controller = "clients"
     @client = Client.find(params[:id])
-    @title = "Showing " + @client.name + ' ' + @client.surname
+    @title = "Showing " + @client.fullname
     
     @comments = @client.comments.recent.limit(10).all
+    
+    add_breadcrumb "clients", clients_path, :title => "Back to the Index"
     
     respond_to do |format|
       format.html # show.html.erb
@@ -62,6 +70,8 @@ class ClientsController < ApplicationController
     @controller = "clients"
     @client = Client.find(params[:id])
     @title = "Editing " + @client.name + ' ' + @client.surname
+    
+    add_breadcrumb "clients", clients_path, :title => "Back to the Index"
   end
   
   def update
