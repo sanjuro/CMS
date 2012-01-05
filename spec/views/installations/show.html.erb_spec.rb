@@ -8,6 +8,8 @@ describe "installations/show.html.erb" do
       :decoder_number_one => "MyString",
       :smartcard_number_one => "MyString",
     ))
+    
+    @comments = @installation.comments.recent.limit(10).all
   end
 
   it "renders attributes in <p>" do

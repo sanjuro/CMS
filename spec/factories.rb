@@ -6,7 +6,6 @@ Factory.define :user do |user|
 end
 
 Factory.define :client do |client|
-  client.client_number      'C333427046'
   client.title              'Mr'
   client.name               "Test"
   client.surname            "Client"

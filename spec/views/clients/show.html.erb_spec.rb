@@ -7,6 +7,8 @@ describe "clients/show.html.erb" do
       :name => "Title",
       :surname => "Surname"
     ))
+    
+    @comments = @client.comments.recent.limit(10).all
   end
 
   it "renders attributes in <p>" do
