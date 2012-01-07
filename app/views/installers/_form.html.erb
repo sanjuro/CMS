@@ -1,0 +1,47 @@
+<%= form_for(@installer) do |f| %>
+  <% if @installer.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@installer.errors.count, "error") %> prohibited this installer from being saved:</h2>
+    <ul>
+    <% @installer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <fieldset class="inputs" name="Details">
+  <legend><span>Details</span></legend>
+  <ol>
+	<li id="installer_number_input" class="string optional">
+    <%= f.label :installer_number %>
+    <%= f.text_field :installer_number %>
+	</li>
+	<li id="installer_name_input" class="string optional">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+	</li>
+	<li id="installer_surname_input" class="string optional">
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+	</li>
+	<li id="installer_contact_number_input" class="string optional">
+    <%= f.label :contact_number %>
+    <%= f.text_field :contact_number %>
+	</li>
+  </ol>
+  </fieldset> 
+  
+  
+  <fieldset class="buttons">
+  <ol>
+  	<li class="commit">
+  		<%= f.submit %>
+  	</li>
+  	<li class="cancel">
+  		<%= link_to 'Back', installers_path %>
+  	</li>
+  </ol>
+  </fieldset>
+
+<% end %>

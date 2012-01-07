@@ -1,0 +1,46 @@
+<h1>Showing  <%= @installer.fullname %></h1>
+
+<div class="panel">
+	<h3>Installer Details</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_installer_2" class="attributes_table installer">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Installer Number:</b></th>
+				<td><%= @installer.installer_number %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Name:</b></th>
+				<td><%= @installer.name %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Surname:</b></th>
+				<td><%= @installer.surname %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Contact Number:</b></th>
+				<td><%= @installer.contact_number %></td>
+			</tr>		
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+
+<div class="panel"> 	
+	<h3>Comments</h3>
+	<div class="panel_body">
+	  	<%= render :partial => 'comments/comments', :locals => {:comments => @comments} %>
+	  	
+		<%= render :partial => 'comments/comment_form', :locals => {:model => @installer, :type => 'Installer'} %>	
+	</div>
+</div>
+ 
+<%= link_to 'Edit', edit_installer_path(@installer), :class => "button" %> |
+<%= link_to 'Back to list', installers_path %>

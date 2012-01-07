@@ -18,3 +18,10 @@ Factory.define :installation do |installation|
   installation.decoder_number_one       "D1231232123"
   installation.smartcard_number_one     "S13123123"
 end
+
+Factory.define :installer do |installer|
+  installer.installer_number             "IS12341234"
+  installer.name               "Test"
+  installer.surname            "Installer"
+  installer.contact_number     "0831231212"
+end

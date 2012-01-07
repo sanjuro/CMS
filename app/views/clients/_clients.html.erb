@@ -11,6 +11,7 @@
 
 <table> 
 	<tr>
+		<th>Number</th> 
 		<th>Mr</th> 
 		<th>Name</th> 
 		<th>Surname</th> 
@@ -20,6 +21,7 @@
 	
 	<% @clients.each do |client| %>
 	    <tr class="<%= cycle("even", "odd") %>">
+	    	<td><%= client.client_number %></td>
 			<td><%= client.title %></td>
 			<td><%= client.name %></td> 
 			<td><%= client.surname %></td> 

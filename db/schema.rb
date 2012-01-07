@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218205015) do
+ActiveRecord::Schema.define(:version => 20120104205515) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -79,6 +79,19 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.datetime "updated_at"
   end
 
+  add_index "clients", ["client_number"], :name => "index_clients_on_client_number", :unique => true
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.string   "comment",                        :default => ""
+    t.datetime "created_at",                                     :null => false
+    t.integer  "commentable_id",                 :default => 0,  :null => false
+    t.string   "commentable_type", :limit => 15, :default => "", :null => false
+    t.integer  "user_id",                        :default => 0,  :null => false
+  end
+
+  add_index "comments", ["user_id"], :name => "fk_comments_user"
+
   create_table "installation_items", :force => true do |t|
     t.integer  "installation_id"
     t.integer  "product_id"
@@ -117,8 +130,9 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
   add_index "installations", ["installation_number"], :name => "index_installation_on_installation_number"
 
   create_table "installers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "second_name"
+    t.string   "installer_number"
+    t.string   "name"
+    t.string   "surname"
     t.string   "contact_number"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -143,6 +157,16 @@ ActiveRecord::Schema.define(:version => 20111218205015) do
     t.datetime "deleted_at"
     t.string   "meta_description"
     t.string   "meta_keywords"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "smp_reps", :force => true do |t|
+    t.string   "smp_rep_code"
+    t.string   "title"
+    t.string   "name"
+    t.string   "surname"
+    t.string   "contact_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -17,6 +17,8 @@ Cms::Application.routes.draw do
   
   resources :installations
   
+  resources :installers
+  
   resources :comments
   match '/comment/new/' => 'comments#new', :as => :new_comment
 

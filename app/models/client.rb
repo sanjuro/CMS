@@ -19,7 +19,7 @@ class Client < ActiveRecord::Base
                   :province, :postal_code, :latitude, :longitude,
                   :created_at, :updated_at
        
-  validates :client_number, :uniqueness => true
+  validates :client_number, :uniqueness => true, :on => :create
   validates :name, :presence => true, 
                                :length => {
                                   :minimum   => 3,
@@ -43,7 +43,7 @@ class Client < ActiveRecord::Base
   
   def self.search(search,type)
     if search
-      where('name LIKE ? OR surname LIKE ? OR street_name LIKE ? ', "%#{search}%","%#{search}%","%#{search}%")                                
+      where('name LIKE ? OR surname LIKE ? OR street_name LIKE ? OR smp_number LIKE ? OR smp_rep_code LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")                                
     else
       scoped
     end        

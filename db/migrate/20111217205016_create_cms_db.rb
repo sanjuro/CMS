@@ -36,8 +36,9 @@ class CreateCmsDb < ActiveRecord::Migration
     end
     
     create_table :installers, :options => "ENGINE=INODB" do |t|
-      t.string :first_name
-      t.string :second_name
+      t.string :installer_number
+      t.string :name
+      t.string :surname
       t.string :contact_number
       
       t.timestamps
@@ -101,6 +102,16 @@ class CreateCmsDb < ActiveRecord::Migration
     
     create_table :product_types, :options => "ENGINE=INODB" do |t|
       t.string :title
+    end 
+    
+    create_table :smp_reps, :options => "ENGINE=INODB" do |t|
+      t.string :smp_rep_code, :unique => true
+      t.string :title
+      t.string :name
+      t.string :surname
+      t.string :contact_number
+       
+      t.timestamps
     end 
   end
 

@@ -10,7 +10,7 @@ class Installation < ActiveRecord::Base
                   :updated_at, :created_at, :installation_items_attributes
  
   validates :installation_number, :presence => true,
-                                  :uniqueness => true
+                                  :uniqueness => true, :on => :create
   validates :client_id, :presence => true
   validates :decoder_number_one, :presence => true
   validates :smartcard_number_one, :presence => true

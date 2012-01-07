@@ -1,0 +1,41 @@
+<% if @installers.empty? %>
+	<h3>
+	<span class="blank_slate">
+		There are no Installers yet. <%= link_to 'Create One', new_installer_path %>
+	</span>
+	</h3>
+<% else %>
+<h1>Listing installer</h1>
+
+<%= will_paginate @installers %>
+
+<table> 
+	<tr>
+		<th>Number</th> 
+		<th>Name</th> 
+		<th>Surname</th> 
+		<th>Contact</th> 
+		<th></th>
+	</tr>
+	
+	<% @installers.each do |installer| %>
+	    <tr class="<%= cycle("even", "odd") %>">
+	    	<td><%= installer.installer_number %></td>
+			<td><%= installer.name %></td> 
+			<td><%= installer.surname %></td> 
+			<td><%= installer.contact_number %></td>
+			<td>
+				<%= link_to 'Show', installer %> 
+				<%= link_to 'Edit', edit_installer_path(installer) %>
+				<%= link_to 'Delete', installer, :confirm => 'Are you sure?',:method => :delete %>
+			</td> 
+		</tr>
+		
+	<% end %> 
+</table>
+
+<%= will_paginate @installers %>
+<br>
+
+<%= link_to 'New Installer', new_installer_path, :class => "button" %>
+<% end %>
