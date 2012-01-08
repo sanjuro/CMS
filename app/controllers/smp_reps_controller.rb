@@ -23,7 +23,7 @@ class SmpRepsController < ApplicationController
     
     @smp_rep.generate_smp_rep_code
     
-    add_breadcrumb "smp_reps", smp_reps_path, :title => "Back to the Index"
+    add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
    
     respond_to do |format|
       format.html # new.html.erb
@@ -57,7 +57,7 @@ class SmpRepsController < ApplicationController
     
     @comments = @smp_rep.comments.recent.limit(10).all
     
-    add_breadcrumb "smp_reps", smp_reps_path, :title => "Back to the Index"
+    add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
     
     respond_to do |format|
       format.html # show.html.erb
@@ -71,7 +71,7 @@ class SmpRepsController < ApplicationController
     @smp_rep = SmpRep.find(params[:id])
     @title = "Editing " + @smp_rep.full_name
     
-    add_breadcrumb "smp_reps", smp_reps_path, :title => "Back to the Index"
+    add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
   end
   
 end
