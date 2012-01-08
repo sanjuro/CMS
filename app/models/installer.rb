@@ -23,7 +23,7 @@ class Installer < ActiveRecord::Base
   validates :contact_number, :presence => true,                            
                              :length => { :minimum => 9 }
                                
-  has_many :installations  
+  has_and_belongs_to_many :installations  
   
   def self.search(search,type)
     if search

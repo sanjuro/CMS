@@ -351,7 +351,7 @@ form fieldset > ol > li ul.errors li {
 form fieldset > ol > li.error input[type="text"], form fieldset > ol > li.error input[type="password"], form fieldset > ol > li.error input[type="email"], form fieldset > ol > li.error input[type="url"], form fieldset > ol > li.error input[type="tel"], form fieldset > ol > li.error textarea {
     border: 1px solid #932419;
 }
-form input[type="submit"] {
+form input[type="submit"], div.panel_contents input[type="submit"]{
 	background: -moz-linear-gradient(center top , #67B0EF, #2B5EA4) repeat scroll 0 0 transparent;
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;

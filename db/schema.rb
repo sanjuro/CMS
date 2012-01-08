@@ -129,6 +129,11 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
   add_index "installations", ["client_id"], :name => "index_installation_on_client"
   add_index "installations", ["installation_number"], :name => "index_installation_on_installation_number"
 
+  create_table "installations_installers", :id => false, :force => true do |t|
+    t.integer "installer_id"
+    t.integer "installation_id"
+  end
+
   create_table "installers", :force => true do |t|
     t.string   "installer_number"
     t.string   "name"

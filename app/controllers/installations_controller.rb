@@ -20,6 +20,12 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @title = "New Installation"
     @installation = Installation.new
+    @installation.generate_installation_number
+    
+    
+    @installation_types = InstallationType.find(:all) 
+    @lnb_types = LnbType.find(:all) 
+    @installers = Installer.find(:all) 
     
     add_breadcrumb "installations", installations_path, :title => "Back to the Index"
    
@@ -32,6 +38,9 @@ class InstallationsController < ApplicationController
   
   def create
     @installation = Installation.new(params[:installation])
+    @installation_types = InstallationType.find(:all) 
+    @lnb_types = LnbType.find(:all) 
+    @installers = Installer.find(:all) 
    
     respond_to do |format|
       if @installation.save
@@ -51,6 +60,8 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @installation = Installation.find(params[:id])
     @title = "Showing " + @installation.installation_number
+    
+    @installers = @installation.installers
     
     add_breadcrumb "installations", installations_path, :title => "Back to the Index"
     
@@ -75,6 +86,8 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @installation = Installation.find(params[:id])
     @title = "Editing " + @installation.installation_number
+    
+    params[:installation][:installer_ids] ||= []
    
     respond_to do |format|
       if @installation.update_attributes(params[:installation])

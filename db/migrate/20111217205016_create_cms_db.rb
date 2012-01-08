@@ -44,6 +44,15 @@ class CreateCmsDb < ActiveRecord::Migration
       t.timestamps
     end  
     
+    Installer.create!(:installer_number => 'IS12341234', :name => 'Test', :surname => 'Installer1', :contact_number => '0831231212')
+    Installer.create!(:installer_number => 'IS12341235', :name => 'Test', :surname => 'Installer2', :contact_number => '0831231212')
+    Installer.create!(:installer_number => 'IS12341236', :name => 'Test', :surname => 'Installer3', :contact_number => '0831231212')
+    
+    create_table :installations_installers, :id => false  do |t|
+      t.integer :installer_id
+      t.integer :installation_id
+    end
+
     create_table :installations, :options => "ENGINE=INNODB" do |t|
       t.references :installation_type
       t.references :lnb_type
@@ -81,9 +90,22 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string :title
     end    
     
+    InstallationType.create!(:title => 'Samset')
+    InstallationType.create!(:title => 'Space')
+    InstallationType.create!(:title => 'Sos Audio Visual')
+    InstallationType.create!(:title => 'Multichoice')
+    InstallationType.create!(:title => 'Big Bay')
+    InstallationType.create!(:title => 'PVT')
+    
     create_table :lnb_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end
+    
+    LnbType.create!(:title => 'Single')
+    LnbType.create!(:title => 'Twin')
+    LnbType.create!(:title => '4x4')
+    LnbType.create!(:title => 'Quad')
+    LnbType.create!(:title => 'SatCR')
     
     create_table "products", :force => true do |t|
       t.references :product_type

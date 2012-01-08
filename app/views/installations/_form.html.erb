@@ -14,8 +14,8 @@
   <legend><span>Details</span></legend>
   <ol>
 	<li id="installation_installation_type_input" class="string optional">
-    <%= f.label :installation_type %>
-    <%= f.select(:installation_type_id, [['TOP TV', 1], ['Ellies', 2]]) %>
+    <%= f.label :installation_type_id %>
+    <%= f.select(:installation_type_id, options_for_select(InstallationType.all.map { |installation_type| [installation_type.title, installation_type.id] })) %>
 	</li>
 	<li id="installation_client_id_input" class="string optional">
     <%= f.label :client_id %>
@@ -45,9 +45,21 @@
     <%= f.label :smartcard_number_two %>
     <%= f.text_field :smartcard_number_two %>
 	</li>
+	<li id="installation_lnb_type_input" class="string optional">
+    <%= f.label :lnb_type_id %>
+    <%= f.select(:lnb_type_id, options_for_select(LnbType.all.map { |lnb_type| [lnb_type.title, lnb_type.id] })) %>
+	</li>
 	<li id="installation_lnb_no_input" class="string optional">
     <%= f.label :lnb_no %>
     <%= f.text_field :lnb_no %>
+	</li>
+	<li id="installation_installers_input" class="string optional">
+	<% for installer in Installer.find(:all) %>
+		<div>
+			<%= check_box_tag "installation[installer_ids][]", installer.id, @installation.installers.include?(installer) =%>
+			<%= label_tag :installer_ids, installer.fullname %>
+		</div>
+	<% end %>
 	</li>
 	<li id="installation_cost_total_input" class="string optional">
     <%= f.label :cost_total %>

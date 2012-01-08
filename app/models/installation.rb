@@ -6,7 +6,7 @@ class Installation < ActiveRecord::Base
                   :cost_total, :selling_total, :voucher_number,  
                   :decoder_number_one, :decoder_number_two,
                   :smartcard_number_one, :smartcard_number_two,
-                  :lnb_no, :lnb_type, 
+                  :lnb_no, :lnb_type_id, :installer_ids,
                   :updated_at, :created_at, :installation_items_attributes
  
   validates :installation_number, :presence => true,
@@ -15,12 +15,10 @@ class Installation < ActiveRecord::Base
   validates :decoder_number_one, :presence => true
   validates :smartcard_number_one, :presence => true
                   
-  belongs_to :client, :foreign_key => "client_id", :class_name => "Client"
-  
-  belongs_to :installation_type                 
+  belongs_to :client, :foreign_key => "client_id", :class_name => "Client"              
                   
   has_many :installation_items, :dependent => :destroy    
-  has_many :installers
+  has_and_belongs_to_many :installers
   
   accepts_nested_attributes_for :installation_items, :allow_destroy => true
              

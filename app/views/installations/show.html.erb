@@ -9,7 +9,7 @@
 			<tbody>
 			<tr>
 				<th><b>Installation Type:</b></th>
-				<td><%= @installation.installation_type %></td>
+				<td><%= @installation.installation_type_id %></td>
 			</tr>
 			
 			<tr>
@@ -53,6 +53,11 @@
 			</tr>
 			
 			<tr>
+				<th><b>LNB Type:</b></th>
+				<td><%= @installation.lnb_type_id %></td>
+			</tr>
+			
+			<tr>
 				<th><b>Created At:</b></th>
 				<td><%= @installation.created_at %></td>
 			</tr>			
@@ -61,6 +66,9 @@
 		</div>
 	</div>
 </div>
+
+<%= render :partial => 'installations/installers' %>
+
 
 <div class="panel"> 	
 	<h3>Comments</h3>
