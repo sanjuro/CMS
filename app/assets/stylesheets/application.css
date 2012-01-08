@@ -111,6 +111,9 @@ a.button {
     text-decoration: none;
     text-shadow: 0 -1px 0 #003366;	
 	}
+.show_page_buttons {
+	float: right;
+	}
 
 /* Navigation */
 nav {
@@ -167,6 +170,7 @@ ul#sidebarnav li a {
 ul#sidebarnav li:hover {
 	background-color: #EEEEEE;
 }
+
 
 /* Forms */
 form ul, form ol, form li, form fieldset, form legend, form input, form textarea, form select, form p {

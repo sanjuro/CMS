@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
     t.integer  "lnb_type_id"
     t.integer  "client_id"
     t.string   "installation_number"
+    t.string   "client_number"
     t.string   "voucher_number"
     t.string   "decoder_number_one"
     t.string   "decoder_number_two"

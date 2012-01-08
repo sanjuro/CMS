@@ -2,7 +2,7 @@ class Installation < ActiveRecord::Base
  
   acts_as_commentable   
   
-  attr_accessible :id, :installation_number, :installation_type_id, :client_id, 
+  attr_accessible :id, :installation_number, :installation_type_id, :client_number, 
                   :cost_total, :selling_total, :voucher_number,  
                   :decoder_number_one, :decoder_number_two,
                   :smartcard_number_one, :smartcard_number_two,
@@ -11,11 +11,13 @@ class Installation < ActiveRecord::Base
  
   validates :installation_number, :presence => true,
                                   :uniqueness => true, :on => :create
-  validates :client_id, :presence => true
+  validates :client_number, :presence => true
   validates :decoder_number_one, :presence => true
   validates :smartcard_number_one, :presence => true
                   
-  belongs_to :client, :foreign_key => "client_id", :class_name => "Client"              
+  belongs_to :client, :primary_key => :client_number , :foreign_key => :client_number   
+  belongs_to :installation_type
+  belongs_to :lnb_type          
                   
   has_many :installation_items, :dependent => :destroy    
   has_and_belongs_to_many :installers

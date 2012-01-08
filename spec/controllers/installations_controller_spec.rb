@@ -41,7 +41,7 @@ describe InstallationsController do
     describe "success" do
       
       before(:each) do 
-        @attr = { :installation_number => "I13123123", :client_id => 1, :decoder_number_one => "D1231232123", :smartcard_number_one => "S13123123" }
+        @attr = { :installation_number => "I13123123", :client_number => 'C12341234', :decoder_number_one => "D1231232123", :smartcard_number_one => "S13123123", :installer_ids => [1,2] }
       end
       
       it "should create a installation" do
@@ -60,7 +60,7 @@ describe InstallationsController do
     describe "failure" do
       
       before(:each) do
-        @attr = { :installation_number => "", :client_id => "", :decoder_number_one => "", :smartcard_number_one => "" }
+        @attr = { :installation_number => "", :client_number => "", :decoder_number_one => "", :smartcard_number_one => "" }
       end
       
       it "should not create a installation" do

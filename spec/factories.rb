@@ -7,6 +7,7 @@ end
 
 Factory.define :client do |client|
   client.title              'Mr'
+  client.client_number      'C12341234'
   client.name               "Test"
   client.surname            "Client"
   client.email_address      "test@eaxmple.com"
@@ -14,13 +15,12 @@ end
 
 Factory.define :installation do |installation|
   installation.installation_number      'I333427046'
-  installation.client_id                1
+  installation.client_number            'C12341234'
   installation.decoder_number_one       "D1231232123"
   installation.smartcard_number_one     "S13123123"
 end
 
 Factory.define :installer do |installer|
-  installer.installer_number             "IS12341234"
   installer.name               "Test"
   installer.surname            "Installer"
   installer.contact_number     "0831231212"

@@ -18,6 +18,8 @@ Cms::Application.routes.draw do
   resources :installations
   
   resources :installers
+  match '/installations/new/:client_number' => 'installations#new', :as => :installation_client
+  # match '/installations/new/:client_id', :controller => 'installation', :action => 'new', :as => :installation_client_path
   
   resources :comments
   match '/comment/new/' => 'comments#new', :as => :new_comment

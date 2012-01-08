@@ -25,6 +25,8 @@ class Installer < ActiveRecord::Base
                                
   has_and_belongs_to_many :installations  
   
+  before_create :generate_installer_number
+  
   def self.search(search,type)
     if search
       where('name LIKE ? OR surname LIKE ? OR installer_number LIKE ?', "%#{search}%","%#{search}%","%#{search}%")                                

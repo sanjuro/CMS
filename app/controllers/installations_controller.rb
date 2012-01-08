@@ -20,6 +20,11 @@ class InstallationsController < ApplicationController
     @controller = "installations"
     @title = "New Installation"
     @installation = Installation.new
+    
+    if params[:client_number]
+      @installation.client_number = params[:client_number] 
+    end
+    
     @installation.generate_installation_number
     
     

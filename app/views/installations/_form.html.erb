@@ -17,9 +17,9 @@
     <%= f.label :installation_type_id %>
     <%= f.select(:installation_type_id, options_for_select(InstallationType.all.map { |installation_type| [installation_type.title, installation_type.id] })) %>
 	</li>
-	<li id="installation_client_id_input" class="string optional">
-    <%= f.label :client_id %>
-    <%= f.text_field :client_id %>
+	<li id="installation_client_number_input" class="string optional">
+    <%= f.label :client_number %>
+    <%= f.text_field :client_number %>
 	</li>
 	<li id="installation_installation_number_input" class="string optional">
     <%= f.label :installation_number %>

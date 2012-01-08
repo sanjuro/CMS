@@ -58,6 +58,7 @@ class CreateCmsDb < ActiveRecord::Migration
       t.references :lnb_type
       t.references :client
       t.string :installation_number
+      t.string :client_number
       t.string :voucher_number
       t.string :decoder_number_one
       t.string :decoder_number_two

@@ -1,4 +1,10 @@
-<h1>Showing  <%= @client.fullname %></h1>
+<h1>
+	Showing  <%= @client.fullname %>
+
+	<div class="show_page_buttons">
+		<%= link_to 'New Installation', installation_client_url(:client_number => @client.client_number), :class => "button" %>
+	</div>
+</h1>
 
 <div class="panel">
 	<h3>Client Details</h3>

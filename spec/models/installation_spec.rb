@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Installation do
 
   before(:each) do 
-    @attr = { :installation_number => 'I333427046', :client_id => 1, :decoder_number_one => "D123123123", :smartcard_number_one => "S123123123" }
+    @attr = { :installation_number => 'I333427046', :client_number => 'C1231234', :decoder_number_one => 'D12341234', :smartcard_number_one => "S123123123" }
   end
   
   it "should create a new instance given valid attributes" do 
@@ -15,9 +15,9 @@ describe Installation do
     no_installation_number_installation.should_not be_valid
   end
   
-  it "should require a client id" do
-    no_client_id_installation = Installation.new(@attr.merge(:client_id => ""))
-    no_client_id_installation.should_not be_valid
+  it "should require a client number" do
+    no_client_number_installation = Installation.new(@attr.merge(:client_number => ""))
+    no_client_number_installation.should_not be_valid
   end  
   
   it "should require a decoder number one" do
