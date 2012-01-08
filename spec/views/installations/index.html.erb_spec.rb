@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "installations/index.html.erb" do
   before(:each) do
+    client = Client.new(:title => 'Mr', :client_number => 'C12341234', :name => "Test", :surname  => "Client", :email_address  => "test@eaxmple.com")
     page = 1
     per_page = 2
     total_entries = 4
@@ -9,25 +10,25 @@ describe "installations/index.html.erb" do
       pager.replace([stub_model(Installation, :installation_number => "Installation Number",
                                         :decoder_number_one => "Decoder Number",
                                         :installation_type => stub_model(InstallationType, :id => 1, :title => 'PVR'),
-                                        :client => Factory(:client),
+                                        :client => client,
                                         :smartcard_number_one => "Smartcard Number",
                                         :created_at => "Date"), 
                      stub_model(Installation, :installation_number => "Installation Number",
                                         :decoder_number_one => "Decoder Number",
                                         :installation_type => stub_model(InstallationType, :id => 1, :title => 'PVR'),
-                                        :client => Factory(:client),
+                                        :client => client,
                                         :smartcard_number_one => "Smartcard Number",
                                         :created_at => "Date"), 
                     stub_model(Installation, :installation_number => "Installation Number",
                                         :decoder_number_one => "Decoder Number",
                                         :installation_type => stub_model(InstallationType, :id => 1, :title => 'PVR'),
-                                        :client => Factory(:client),
+                                        :client => client,
                                         :smartcard_number_one => "Smartcard Number",
                                         :created_at => "Date"),  
                     stub_model(Installation, :installation_number => "Installation Number",
                                         :decoder_number_one => "Decoder Number",
                                         :installation_type => stub_model(InstallationType, :id => 1, :title => 'PVR'),
-                                        :client => Factory(:client),
+                                        :client => client,
                                         :smartcard_number_one => "Smartcard Number",
                                         :created_at => "Date")])
     end

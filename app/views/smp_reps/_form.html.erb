@@ -1,0 +1,50 @@
+<%= form_for(@smp_rep) do |f| %>
+  <% if @smp_rep.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@smp_rep.errors.count, "error") %> prohibited this smp rep from being saved:</h2>
+    <ul>
+    <% @smp_rep.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <fieldset class="inputs" name="Details">
+  <legend><span>Details</span></legend>
+  <ol>
+  	<li id="smp_rep_smp_rep_code_input" class="string optional">
+    <%= f.label :smp_rep_code %>
+    <%= f.text_field :smp_rep_code %>
+	</li>
+	<li id="smp_rep_title_input" class="string optional">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+	</li>
+	<li id="smp_rep_name_input" class="string optional">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+	</li>
+	<li id="smp_rep_surname_input" class="string optional">
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+	</li>
+	<li id="smp_rep_contact_number_input" class="string optional">
+    <%= f.label :contact_number %>
+    <%= f.text_field :contact_number %>
+	</li>
+  </ol>
+  </fieldset>
+  
+  <fieldset class="buttons">
+  <ol>
+  	<li class="commit">
+  		<%= f.submit %>
+  	</li>
+  	<li class="cancel">
+  		<%= link_to 'Back', smp_reps_path %>
+  	</li>
+  </ol>
+  </fieldset>
+
+<% end %>

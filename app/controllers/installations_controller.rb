@@ -36,8 +36,8 @@ class InstallationsController < ApplicationController
    
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @client }
-      format.json  { render :json => @client }
+      format.xml  { render :xml => @installation }
+      format.json  { render :json => @installation }
     end
   end
   

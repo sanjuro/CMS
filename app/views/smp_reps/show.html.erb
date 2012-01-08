@@ -1,0 +1,52 @@
+<h1>
+	Showing  <%= @smp_rep.fullname %>
+</h1>
+
+<div class="panel">
+	<h3>SMP Rep Details</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_smp_rep_2" class="attributes_table smp_rep">
+		<table>
+			<<tr>
+				<th><b>SMP Rep Code:</b></th>
+				<td><%= @smp_rep.smp_rep_code %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Title:</b></th>
+				<td><%= @smp_rep.title %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Name:</b></th>
+				<td><%= @smp_rep.name %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Surname:</b></th>
+				<td><%= @smp_rep.surname %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Contact Number:</b></th>
+				<td><%= @smp_rep.contact_number %></td>
+			</tr>
+				
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel"> 	
+	<h3>Comments</h3>
+	<div class="panel_body">
+	  	<%= render :partial => 'comments/comments', :locals => {:comments => @comments} %>
+	  	
+		<%= render :partial => 'comments/comment_form', :locals => {:model => @smp_rep, :type => 'SmpRep'} %>	
+	</div>
+</div>
+ 
+<%= link_to 'Edit', edit_smp_rep_path(@smp_rep), :class => "button" %> |
+<%= link_to 'Back to list', smp_reps_path %>

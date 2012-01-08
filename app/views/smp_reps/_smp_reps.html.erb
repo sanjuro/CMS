@@ -1,0 +1,43 @@
+<% if @smp_reps.empty? %>
+	<h3>
+	<span class="blank_slate">
+		There are no SMP Reps yet. <%= link_to 'Create One', new_smp_rep_path %>
+	</span>
+	</h3>
+<% else %>
+<h1>Listing SMP Reps</h1>
+
+<%= will_paginate @smp_reps %>
+
+<table> 
+	<tr>
+		<th>Rep Code</th> 
+		<th>Mr</th> 
+		<th>Name</th> 
+		<th>Surname</th> 
+		<th>Contact number</th> 
+		<th></th>
+	</tr>
+	
+	<% @smp_reps.each do |smp_rep| %>
+	    <tr class="<%= cycle("even", "odd") %>">
+	    	<td><%= smp_rep.rep_code %></td>
+			<td><%= smp_rep.title %></td>
+			<td><%= smp_rep.name %></td> 
+			<td><%= smp_rep.surname %></td> 
+			<td><%= smp_rep.contact_number %></td>
+			<td>
+				<%= link_to 'Show', smp_rep %> 
+				<%= link_to 'Edit', edit_smp_rep_path(smp_rep) %>
+				<%= link_to 'Delete', smp_rep, :confirm => 'Are you sure?',:method => :delete %>
+			</td> 
+		</tr>
+		
+	<% end %> 
+</table>
+
+<%= will_paginate @smp_reps %>
+<br>
+
+<%= link_to 'New SMP Rep', new_smp_rep_path, :class => "button" %>
+<% end %>

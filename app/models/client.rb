@@ -35,7 +35,9 @@ class Client < ActiveRecord::Base
                                   :too_long  => "must have at most %{count} characters"
                                 }     
   validates :email_address, :presence => true,
-                            :format => { :with => email_regex }                                      
+                            :format => { :with => email_regex }   
+                              
+  belongs_to  :smp_rep, :primary_key => :smp_rep_code , :foreign_key => :smp_rep_code                                    
   
   has_many :installations, :dependent => :destroy
   

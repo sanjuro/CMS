@@ -1,10 +1,3 @@
-Factory.define :user do |user|
-  user.name                  'Test'
-  user.username              'sanjuro'
-  user.password              'rad6hia'
-  user.email                 'test@gmail.com'
-end
-
 Factory.define :client do |client|
   client.title              'Mr'
   client.client_number      'C12341234'
@@ -24,4 +17,18 @@ Factory.define :installer do |installer|
   installer.name               "Test"
   installer.surname            "Installer"
   installer.contact_number     "0831231212"
+end
+
+Factory.define :smp_rep do |smp_rep|
+  smp_rep.title              'Mr'
+  smp_rep.name               "Test"
+  smp_rep.surname            "Smprep"
+  smp_rep.contact_number     "0831231212"
+end
+
+Factory.define :user do |user|
+  user.name                  'Test'
+  user.username              'sanjuro'
+  user.password              'rad6hia'
+  user.email                 'test@gmail.com'
 end

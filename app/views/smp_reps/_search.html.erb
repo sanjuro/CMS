@@ -1,0 +1,5 @@
+<%= form_tag smp_reps_path, :method => 'get', :id => "smp_reps_search" do %>
+	<span class="label">Search</span>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
+<% end %>

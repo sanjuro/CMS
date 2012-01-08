@@ -51,7 +51,7 @@ class InstallersController < ApplicationController
   end
   
   def show
-    @controller = "clients"
+    @controller = "installations"
     @installer = Installer.find(params[:id])
     @title = "Showing " + @installer.fullname
     
