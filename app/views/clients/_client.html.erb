@@ -1,0 +1,10 @@
+ <div class="feed">
+			<div><%= link_to client.fullname, client %> was captured at <%= client.created_at %></div>
+			<div>Their client number is <b><%= client.client_number %></b></div>
+			<div>Client situated at <b><%= client.full_address %></b></div>
+			<div>
+				<%= link_to 'Show', client %> 
+				<%= link_to 'Edit', edit_client_path(client) %>
+				<%= link_to 'Delete', client, :confirm => 'Are you sure?',:method => :delete %>
+			</div> 
+</div>

@@ -1,3 +1,43 @@
-<div id="clients"> 
-	<%= render :partial => 'clients/clients', %>
+<div id="clients">
+  <div class="page">
+    <%= render @clients %>
+  </div>
 </div>
+<div id="feed_loader" class="loader" style="display:none;">Loading more ...</div>
+  
+<script type="text/javascript">
+(function() {
+  var page = 1,
+      loading = false;
+
+  function nearBottomOfPage() {
+    return $(window).scrollTop() > $(document).height() - $(window).height() - 200;
+  }
+
+  $(window).scroll(function(){
+    if (loading) {
+      return;
+    }
+
+    if(nearBottomOfPage()) {
+      loading=true;
+      page++;
+      $.ajax({
+        url: '/clients?page=' + page,
+        type: 'get',
+        dataType: 'script',
+        loading: $('#feed_loader').show(),
+        complete: function(){
+        			$('#feed_loader').hide();$('#load_button').show();
+     			 },
+        success: function() {
+          $(window).sausage('draw');
+          loading=false;
+        }
+      });
+    }
+  });
+
+  $(window).sausage();
+}());
+</script>

@@ -204,6 +204,7 @@ DEPENDENCIES
   devise (= 1.4.7)
   factory_girl_rails
   jquery-rails
+  kaminari
   meta_search (>= 1.1.0.pre)
   mysql2
   prawn_rails

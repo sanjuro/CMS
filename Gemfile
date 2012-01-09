@@ -44,6 +44,8 @@ gem "meta_search",    '>= 1.1.0.pre'
 
 gem 'will_paginate'
 
+gem 'kaminari'
+
 gem 'acts_as_commentable'
 
 gem 'breadcrumbs_on_rails'

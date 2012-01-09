@@ -69,4 +69,8 @@ class Client < ActiveRecord::Base
     self.title + ' ' + self.name + ' ' + self.surname
   end
   
+  def full_address
+    self.unit_number + ' ' + self.street_name + ', ' + self.suburb + ', ' + self.city + ', ' + self.province
+  end
+  
 end
