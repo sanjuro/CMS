@@ -11,7 +11,7 @@
 /db/*.sqlite3
 
 # Ignore configs
-config
+/config
 
 # Ignore PDFs
 pdfs/*
