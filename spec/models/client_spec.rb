@@ -20,11 +20,6 @@ describe Client do
    no_surname_client.should_not be_valid
   end
   
-  it "should require a email address" do
-   no_email_client = Client.new(@attr.merge(:email_address => ""))
-   no_email_client.should_not be_valid
-  end
-  
   it "should reject names that are too long" do
     long_name = "a" * 51
     long_name_client = Client.new(@attr.merge(:name => long_name))
