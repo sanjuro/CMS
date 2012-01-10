@@ -1,9 +1,17 @@
 <div id="clients">
+<% if @clients.empty? %>
+	<h3>
+	<span class="blank_slate">
+		There are no Clients yet. <%= link_to 'Create One', new_client_path %>
+	</span>
+	</h3>
+<% else %>
   <div class="page">
     <%= render @clients %>
   </div>
 </div>
 <div id="feed_loader" class="loader" style="display:none;">Loading more ...</div>
+<% end %>
   
 <script type="text/javascript">
 (function() {
