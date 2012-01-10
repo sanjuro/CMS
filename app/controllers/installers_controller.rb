@@ -6,7 +6,7 @@ class InstallersController < ApplicationController
   
   def index
     @title = "Installers"
-    @controller = "Installers"
+    @controller = "installers"
     @installers = Installer.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
    
     add_breadcrumb "installers", installers_path, :title => "Back to the Index"
