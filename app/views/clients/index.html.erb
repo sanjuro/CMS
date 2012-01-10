@@ -6,6 +6,7 @@
 	</span>
 	</h3>
 <% else %>
+  <%= link_to 'New Client', new_client_path, :class => "button" %>
   <div class="page">
     <%= render @clients %>
   </div>
