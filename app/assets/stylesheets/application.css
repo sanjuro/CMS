@@ -444,7 +444,7 @@ input {
     outline: medium none;
 }
 #search .label {
-	padding-right: 170px;	
+	padding-right: 15%;	
 }
 
 input#search {
