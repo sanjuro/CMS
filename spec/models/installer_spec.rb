@@ -25,4 +25,9 @@ describe Installer do
     no_contact_number_installer.should_not be_valid
   end
   
+  it "should produce the full name of the installer" do
+    installer = Installer.new(@attr.merge(:contact_number => ""))
+    installer.fullname.should  == 'Test Installer'
+  end
+  
 end

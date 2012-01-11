@@ -54,4 +54,9 @@ describe Client do
     client_with_duplicate_client_number.should_not be_valid
   end
   
+  it "should produce the full name of the installer" do
+    client = Client.new(@attr.merge(:contact_number => ""))
+    client.fullname.should  == 'Mr Test Client'
+  end
+  
 end

@@ -77,7 +77,7 @@ class InstallersController < ApplicationController
   def update
     @controller = "installers"
     @installer = Installer.find(params[:id])
-    @title = "Editing " + @installer.full_name
+    @title = "Editing " + @installer.fullname
    
     respond_to do |format|
       if @installer.update_attributes(params[:client])
