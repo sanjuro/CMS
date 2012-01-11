@@ -91,7 +91,8 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string :title
     end    
     
-    InstallationType.create!(:title => 'Samset')
+    InstallationType.create!(:title => 'TopTV')
+    InstallationType.create!(:title => 'Samsat')
     InstallationType.create!(:title => 'Space')
     InstallationType.create!(:title => 'Sos Audio Visual')
     InstallationType.create!(:title => 'Multichoice')

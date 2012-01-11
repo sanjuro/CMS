@@ -508,6 +508,16 @@ input#search {
     text-decoration: none;
     text-shadow: 0 -1px 0 #003366;
 	}
+.feed_installation_blank {
+    border: 1px dashed #DADADA;
+    border-radius: 3px 3px 3px 3px;
+    color: #AAAAAA;
+    display: inline-block;
+    font-weight: bold;
+    padding: 14px 25px;
+    margin: 5px 0px;
+    text-align: center;
+	}
 
 /* Footer */
 footer {
@@ -608,7 +618,7 @@ tr.odd { background: none repeat scroll 0 0 #F5F5F5; }
 .section > div, .panel > div {
     padding: 3px 15px 15px;
 }
-.section h3, .panel h3 {
+.section h3, .panel h3, fieldset.inputs legend h3 {
     background: -moz-linear-gradient(-90deg, #EFEFEF, #DFE1E2) repeat scroll 0 0 transparent;
     border-bottom: 1px solid #EDEDED;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);

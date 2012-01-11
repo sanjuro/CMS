@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "clients/show.html.erb" do
   before(:each) do
     @client = assign(:client, stub_model(Client,
+      :id => 1,
       :client_number => "C12341234",
       :smp_rep_code => "SR12341234",
       :smp_number => "S12341234",

@@ -6,16 +6,20 @@ describe "clients/index.html.erb" do
     per_page = 2
     total_entries = 4
     clients = WillPaginate::Collection.create(page, per_page, total_entries) do |pager|
-      pager.replace([stub_model(Client, :title => "Mr",
+      pager.replace([stub_model(Client, :id => 1, :client_number => 'C12341234',
+                                        :title => "Mr",
                                         :name => "Title",
                                         :surname => "Surname"), 
-                     stub_model(Client, :title => "Mrs",
+                     stub_model(Client, :id => 2, :client_number => 'C12341235',
+                                        :title => "Mrs",
                                         :name => "Title",
                                         :surname => "Surname"), 
-                     stub_model(Client, :title => "Ms",
+                     stub_model(Client, :id => 3, :client_number => 'C12341236', 
+                                        :title => "Ms",
                                         :name => "Title",
                                         :surname => "Surname"),  
-                     stub_model(Client, :title => "Sr",
+                     stub_model(Client, :id => 4, :client_number => 'C12341237',
+                                        :title => "Sr",
                                         :name => "Title",
                                         :surname => "Surname")])
     end

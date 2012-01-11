@@ -23,6 +23,7 @@ class InstallationsController < ApplicationController
     
     if params[:client_number]
       @installation.client_number = params[:client_number] 
+      @installation.client_id = params[:id]  
     end
     
     @installation.generate_installation_number

@@ -2,6 +2,18 @@
 			<div class="feed_full_name"><%= link_to client.full_name, client %> was captured at <%= client.created_at %></div>
 			<div class="feed_client_number">Their client number is <b><%= client.client_number %></b></div>
 			<div class="feed_full_address">Client situated at <b><%= client.full_address %></b></div>
+			<div class="feed_installation">
+				<% if client.installations.empty? %>
+					<span class="feed_installation_blank">
+						There are no Installations yet. <%= link_to 'Create One', installation_client_url(:client_number => client.client_number, :id => client.id) %>
+					</span>
+				<% else %>
+				<div class="feed_installation_number">
+					The Installation Number is <%= link_to client.installations.first.installation_number, client.installations.first =%> and it is a 
+					<b><%= client.installations.first.installation_type.title =%></b> installation
+				</div>
+				<% end %>
+			</div>
 			<div class="feed_buttons">
 				<%= link_to 'Show', client %> 
 				<%= link_to 'Edit', edit_client_path(client) %>

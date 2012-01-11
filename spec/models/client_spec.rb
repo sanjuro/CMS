@@ -32,22 +32,6 @@ describe Client do
     long_surname_client.should_not be_valid
   end
   
-  it "should accept valid email addresses" do
-    addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
-    addresses.each do |address|
-      valid_email_client = Client.new(@attr.merge(:email_address => address))
-      valid_email_client.should be_valid
-    end
-  end
-  
-  it "should reject invalid email addresses" do
-    addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
-    addresses.each do |address|
-      invalid_email_client = Client.new(@attr.merge(:email_address => address))
-      invalid_email_client.should_not be_valid
-    end
-  end
-  
   it "should reject duplicate client numbers" do
     Client.create!(@attr)
     client_with_duplicate_client_number = Client.new(@attr)

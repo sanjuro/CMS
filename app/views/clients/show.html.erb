@@ -2,7 +2,7 @@
 	Showing  <%= @client.full_name %>
 
 	<div class="show_page_buttons">
-		<%= link_to 'New Installation', installation_client_url(:client_number => @client.client_number), :class => "button" %>
+		<%= link_to 'New Installation', installation_client_url(:client_number => @client.client_number, :id => @client.id), :class => "button" %>
 	</div>
 </h1>
 

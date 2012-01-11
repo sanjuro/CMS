@@ -35,12 +35,11 @@ class Client < ActiveRecord::Base
                                   :too_long  => "must have at most %{count} characters"
                                 }    
                                   
-  validates :email_address, :presence => false,
-                            :format => { :with => email_regex }   
+  # validates :email_address, :format => { :with => email_regex }   
                               
   belongs_to  :smp_rep, :primary_key => :smp_rep_code , :foreign_key => :smp_rep_code                                    
   
-  has_many :installations, :dependent => :destroy
+  has_many :installations
   
   before_create :generate_client_number
   
