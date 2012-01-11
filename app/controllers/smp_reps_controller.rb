@@ -69,7 +69,7 @@ class SmpRepsController < ApplicationController
   def edit
     @controller = "smp_reps"
     @smp_rep = SmpRep.find(params[:id])
-    @title = "Editing " + @smp_rep.full_name
+    @title = "Editing " + @smp_rep.fullname
     
     add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
   end
