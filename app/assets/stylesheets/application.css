@@ -101,7 +101,7 @@ a:hover {
 }
 
 a.button {
-	background: -moz-linear-gradient(center top , #67B0EF, #2B5EA4) repeat scroll 0 0 transparent;
+	background-color: #67B0EF;
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF !important;
@@ -356,7 +356,7 @@ form fieldset > ol > li.error input[type="text"], form fieldset > ol > li.error 
     border: 1px solid #932419;
 }
 form input[type="submit"], div.panel_contents input[type="submit"]{
-	background: -moz-linear-gradient(center top , #67B0EF, #2B5EA4) repeat scroll 0 0 transparent;
+	background-color: #67B0EF;
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF !important;
