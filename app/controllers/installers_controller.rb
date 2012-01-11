@@ -69,7 +69,7 @@ class InstallersController < ApplicationController
   def edit
     @controller = "installers"
     @installer = Installer.find(params[:id])
-    @title = "Editing " + @installer.full_name
+    @title = "Editing " + @installer.fullname
     
     add_breadcrumb "installers", installers_path, :title => "Back to the Index"
   end
