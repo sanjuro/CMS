@@ -1,8 +1,8 @@
  <div class="feed">
-			<div><%= link_to client.fullname, client %> was captured at <%= client.created_at %></div>
-			<div>Their client number is <b><%= client.client_number %></b></div>
-			<div>Client situated at <b><%= client.full_address %></b></div>
-			<div>
+			<div class="feed_full_name">><%= link_to client.fullname, client %> was captured at <%= client.created_at %></div>
+			<div class="feed_client_number">Their client number is <b><%= client.client_number %></b></div>
+			<div class="feed_full_address">Client situated at <b><%= client.full_address %></b></div>
+			<div class="feed_buttons">
 				<%= link_to 'Show', client %> 
 				<%= link_to 'Edit', edit_client_path(client) %>
 				<%= link_to 'Delete', client, :confirm => 'Are you sure?',:method => :delete %>

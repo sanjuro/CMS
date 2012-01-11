@@ -68,7 +68,13 @@ class Client < ActiveRecord::Base
   end
   
   def full_address
-    self.unit_number + ' ' + self.street_name + ', ' + self.suburb + ', ' + self.city + ', ' + self.province
+    unit_number =  self.unit_number.blank? ?  '' : self.unit_number
+    street_name = self.street_name.blank? ? '' : self.street_name
+    suburb = self.suburb.blank? ? '' : self.suburb
+    city = self.city.blank? ? '' : self.city
+    province = self.province.blank? ? '' : self.province
+    
+    unit_number + ' ' + street_name + ', ' + suburb + ', ' + city + ', ' + province
   end
   
 end

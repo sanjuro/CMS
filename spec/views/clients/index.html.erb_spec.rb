@@ -26,19 +26,19 @@ describe "clients/index.html.erb" do
   it "renders a list of clients" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Mr".to_s, :count => 1
-    assert_select "tr>td", :text => "Title".to_s, :count => 4
-    assert_select "tr>td", :text => "Surname".to_s, :count => 4
+    rendered.should have_selector("div.feed")
+
+    assert_select ".feed", :count => 4
+    assert_select ".feed_full_name",  :count => 4
+    assert_select ".feed_client_number",  :count => 4
+    assert_select ".feed_full_address",  :count => 4
+    assert_select ".feed_buttons", :count => 4
   end
   
   it "should paginate clients" do
     render
-    rendered.should have_selector("div.pagination")
-    rendered.should have_selector("span.disabled", :content => "Previous")
-    rendered.should have_selector("a", :href => "/clients?page=2",
-                                       :content => "2")
-    rendered.should have_selector("a", :href => "/clients?page=2",
-                                       :content => "Next")
+    rendered.should have_selector("div.page")
+    rendered.should have_selector("div.loader")
   end
 
 end
