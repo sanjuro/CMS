@@ -26,8 +26,8 @@ describe Installer do
   end
   
   it "should produce the full name of the installer" do
-    installer = Installer.new(@attr.merge(:contact_number => ""))
-    installer.fullname.should  == 'Test Installer'
+    installer = Installer.new(@attr)
+    installer.full_name.should  == 'Test Installer'
   end
   
 end

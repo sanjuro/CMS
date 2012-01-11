@@ -55,8 +55,13 @@ describe Client do
   end
   
   it "should produce the full name of the installer" do
-    client = Client.new(@attr.merge(:contact_number => ""))
-    client.fullname.should  == 'Mr Test Client'
+    client = Client.new(@attr)
+    client.full_name.should  == 'Mr Test Client'
+  end
+  
+  it "should produce the full address of the installer" do
+    client = Client.new(@attr.merge(:unit_number => "31", :street_name => "Rickets Street", :suburb => "Parow", :city => "Cape Town" ))
+    client.full_address.should  == '31 Rickets Street, Parow, Cape Town, '
   end
   
 end

@@ -55,7 +55,7 @@ class ClientsController < ApplicationController
   def show
     @controller = "clients"
     @client = Client.find(params[:id])
-    @title = "Showing " + @client.fullname
+    @title = "Showing " + @client.full_name
     
     @comments = @client.comments.recent.limit(10).all
     
@@ -71,7 +71,7 @@ class ClientsController < ApplicationController
   def edit
     @controller = "clients"
     @client = Client.find(params[:id])
-    @title = "Editing " + @client.name + ' ' + @client.surname
+    @title = "Editing " + @client.full_name
     
     add_breadcrumb "clients", clients_path, :title => "Back to the Index"
   end
@@ -79,7 +79,7 @@ class ClientsController < ApplicationController
   def update
     @controller = "clients"
     @client = Client.find(params[:id])
-    @title = "Editing " + @client.name + ' ' + @client.surname
+    @title = "Editing " + @client.full_name
    
     respond_to do |format|
       if @client.update_attributes(params[:client])

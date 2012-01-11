@@ -53,7 +53,7 @@ class SmpRepsController < ApplicationController
   def show
     @controller = "smp_reps"
     @smp_rep = SmpRep.find(params[:id])
-    @title = "Showing " + @smp_rep.fullname
+    @title = "Showing " + @smp_rep.full_name
     
     @comments = @smp_rep.comments.recent.limit(10).all
     
@@ -69,7 +69,7 @@ class SmpRepsController < ApplicationController
   def edit
     @controller = "smp_reps"
     @smp_rep = SmpRep.find(params[:id])
-    @title = "Editing " + @smp_rep.fullname
+    @title = "Editing " + @smp_rep.full_name
     
     add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
   end

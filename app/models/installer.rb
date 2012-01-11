@@ -45,7 +45,7 @@ class Installer < ActiveRecord::Base
     self.installer_number
   end
   
-  def fullname
+  def full_name
     self.name + ' ' + self.surname
   end
                 

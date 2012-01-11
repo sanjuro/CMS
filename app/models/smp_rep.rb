@@ -45,7 +45,7 @@ class SmpRep < ActiveRecord::Base
     self.smp_rep_code
   end
   
-  def fullname
+  def full_name
     self.title + ' ' + self.name + ' ' + self.surname
   end  
   

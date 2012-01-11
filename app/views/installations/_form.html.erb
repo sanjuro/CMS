@@ -57,7 +57,7 @@
 	<% for installer in Installer.find(:all) %>
 		<div>
 			<%= check_box_tag "installation[installer_ids][]", installer.id, @installation.installers.include?(installer) =%>
-			<%= label_tag :installer_ids, installer.fullname %>
+			<%= label_tag :installer_ids, installer.full_name %>
 		</div>
 	<% end %>
 	</li>

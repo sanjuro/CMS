@@ -53,7 +53,7 @@ class InstallersController < ApplicationController
   def show
     @controller = "installations"
     @installer = Installer.find(params[:id])
-    @title = "Showing " + @installer.fullname
+    @title = "Showing " + @installer.full_name
     
     @comments = @installer.comments.recent.limit(10).all
     
@@ -69,7 +69,7 @@ class InstallersController < ApplicationController
   def edit
     @controller = "installers"
     @installer = Installer.find(params[:id])
-    @title = "Editing " + @installer.fullname
+    @title = "Editing " + @installer.full_name
     
     add_breadcrumb "installers", installers_path, :title => "Back to the Index"
   end
@@ -77,7 +77,7 @@ class InstallersController < ApplicationController
   def update
     @controller = "installers"
     @installer = Installer.find(params[:id])
-    @title = "Editing " + @installer.fullname
+    @title = "Editing " + @installer.full_name
    
     respond_to do |format|
       if @installer.update_attributes(params[:client])

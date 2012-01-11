@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SmpRep do
   
   before(:each) do 
-    @attr = { :smp_rep_code => 'SR333427046', :title => 'Mr', :name => "Test", :surname => "Client", :contact_number => "0831231212" }
+    @attr = { :smp_rep_code => 'SR333427046', :title => 'Mr', :name => "Test", :surname => "Smp", :contact_number => "0831231212" }
   end
   
   it "should create a new instance given valid attributes" do 
@@ -35,6 +35,11 @@ describe SmpRep do
     long_surname = "a" * 51
     long_surname_smp_rep = SmpRep.new(@attr.merge(:surname => long_surname))
     long_surname_smp_rep.should_not be_valid
+  end
+  
+  it "should produce the full name of the smp_rep" do
+    smp_rep = SmpRep.new(@attr)
+    smp_rep.full_name.should  == 'Mr Test Smp'
   end
   
   it "should reject duplicate SMP Rep numbers" do
