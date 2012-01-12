@@ -109,7 +109,6 @@ a.button {
     font-weight: bold;
     padding: 5px 10px 6px;
     text-decoration: none;
-    text-shadow: 0 -1px 0 #003366;	
 	}
 .show_page_buttons {
 	float: right;
@@ -125,7 +124,6 @@ nav {
   line-height: 30px;
   letter-spacing: -1px;
   text-decoration: none;
-  text-shadow: 0 2px 2px #39677F;	
   padding: 10px 0.7em;
   white-space: nowrap;
 }
