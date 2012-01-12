@@ -5,7 +5,7 @@
 			<div class="feed_installation">
 				<% if client.installations.empty? %>
 					<span class="feed_installation_blank">
-						There are no Installations yet. <%= link_to 'Create One', installation_client_url(:client_number => client.client_number, :id => client.id) %>
+						There are no Installations for this client. <%= link_to 'Create One', installation_client_url(:client_number => client.client_number, :id => client.id) %>
 					</span>
 				<% else %>
 				<div class="feed_installation_number">

@@ -155,13 +155,14 @@ ul#sidebarnav {
 }
 
 ul#sidebarnav li {
+
+}
+
+ul#sidebarnav li a {
 	font-size: 13px;
 	line-height: 29px;
     opacity: 1;
     padding-left: 10px;
-}
-
-ul#sidebarnav li a {
 	text-decoration: none;
 }
 
@@ -487,9 +488,7 @@ input#search {
 	}
 .loader {
 	background: -moz-linear-gradient(-90deg, #EFEFEF, #DFE1E2) repeat scroll 0 0 transparent;
-    border-bottom: 1px solid #5E6469;
-    border-radius: 4px 4px 4px 4px;
-    color: #5E6469 !important;
+    color: #AAAAAA !important;
     font-size: 16px;
     font-weight: bold;
     padding: 5px 10px 6px;
@@ -497,7 +496,7 @@ input#search {
     text-decoration: none;
 	}
  .feed_button {
-	background: -moz-linear-gradient(center top , #CCCCCC, #2B5EA4) repeat scroll 0 0 transparent;
+	background-color: #EDEFF$;
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF !important;
