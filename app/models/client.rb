@@ -45,7 +45,7 @@ class Client < ActiveRecord::Base
   
   def self.search(search,type)
     if search
-      where('name LIKE ? OR surname LIKE ? OR street_name LIKE ? OR smp_number LIKE ? OR smp_rep_code LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")                                
+      where('client_number LIKE ? OR name LIKE ? OR surname LIKE ? OR street_name LIKE ? OR smp_number LIKE ? OR smp_rep_code LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")                                
     else
       scoped
     end        
