@@ -1,3 +1,4 @@
+<h1>Clients  <%= link_to 'New Client', new_client_path, :class => "button" %></h1>
 <div id="clients">
 <% if @clients.empty? %>
 	<h3>
@@ -6,9 +7,6 @@
 	</span>
 	</h3>
 <% else %>
-  <br>
-  <%= link_to 'New Client', new_client_path, :class => "button" %>
-  <br><br>
   <div class="page">
     <%= render @clients %>
   </div>
