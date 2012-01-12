@@ -517,6 +517,10 @@ input#search {
     margin: 5px 0px;
     text-align: center;
 	}
+.feed_full_name {
+	font-size: 16px;
+	font-weight: bold;
+	}
 
 /* Footer */
 footer {
