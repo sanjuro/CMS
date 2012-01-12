@@ -1,9 +1,10 @@
  <div class="feed">
 			<div class="feed_full_name"><%= link_to client.full_name, client %> </div>
-			<div class="feed_created_at">was captured at <%= client.created_at %></div>
-			<div class="feed_client_number">client number is <b><%= client.client_number %></b></div>
-			<div class="feed_full_address">situated at <b><%= client.full_address %></b></div>
+			<div class="feed_created_at"><span class="icon_feed_created_at" style="float:left;"></span> was captured at <%= client.created_at %></div>
+			<div class="feed_client_number"><span class="icon_feed_client_number" style="float:left;"></span> client number is <b><%= client.client_number %></b></div>
+			<div class="feed_full_address"><span class="icon_feed_full_address" style="float:left;"></span> situated at <b><%= client.full_address %></b></div>
 			<div class="feed_installation">
+				<span class="icon_feed_installation" style="float:left;"></span> 
 				<% if client.installations.empty? %>
 						has no installations. <%= link_to 'Create One', installation_client_url(:client_number => client.client_number, :id => client.id) %>
 				<% else %>

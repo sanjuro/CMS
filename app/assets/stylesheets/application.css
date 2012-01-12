@@ -521,7 +521,41 @@ input#search {
 	font-size: 16px;
 	font-weight: bold;
 	}
-
+.feed_created_at, .feed_client_number, .feed_full_address, .feed_installation, .feed_buttons {
+	clear:both;
+	}
+.icon_feed_created_at{
+	background-image: url('/assets/icons.jpg'); 
+	background-repeat: no-repeat; 
+	background-position: -46px -5px;
+	display: block;
+	height: 21px;
+	width: 20px;
+	}
+.icon_feed_client_number{
+	background-image: url('/assets/icons.jpg'); 
+	background-repeat: no-repeat; 
+	background-position: -46px -47px
+	display: block;
+	height: 21px;
+	width: 20px;
+	}
+.icon_feed_full_address{
+	background-image: url('/assets/icons.jpg'); 
+	background-repeat: no-repeat; 
+	background-position: -340px -89px;
+	display: block;
+	height: 21px;
+	width: 20px;
+	}
+.icon_feed_installation {
+	background-image: url('/assets/icons.jpg'); 
+	background-repeat: no-repeat; 
+	background-position: -172px -68px;
+	display: block;
+	height: 21px;
+	width: 20px;
+	}
 /* Footer */
 footer {
   text-align: center;
