@@ -6,7 +6,7 @@ class Installation < ActiveRecord::Base
                   :cost_total, :selling_total, :voucher_number,  
                   :decoder_number_one, :decoder_number_two,
                   :smartcard_number_one, :smartcard_number_two,
-                  :lnb_no, :lnb_type_id, :installer_ids,
+                  :lnb_no, :lnb_type_id, :installer_ids, :installation_at,
                   :updated_at, :created_at, :installation_items_attributes
  
   validates :installation_number, :presence => true,

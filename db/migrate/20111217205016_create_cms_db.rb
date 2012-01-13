@@ -67,6 +67,7 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string :lnb_no 
       t.decimal "cost_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
       t.decimal "selling_total", :precision => 8, :scale => 2, :default => 0.0, :null => false
+      t.datetime "installation_at"
       
       t.timestamps
     end
