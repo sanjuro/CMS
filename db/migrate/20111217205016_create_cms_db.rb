@@ -4,6 +4,7 @@ class CreateCmsDb < ActiveRecord::Migration
     create_table :clients, :options => "ENGINE=INNODB" do |t|
       t.references :client_type
       t.string :client_number, :unique => true
+      t.string :multichoice_number
       t.string :title
       t.string :initials
       t.string :name
