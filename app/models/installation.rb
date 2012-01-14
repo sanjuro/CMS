@@ -2,7 +2,7 @@ class Installation < ActiveRecord::Base
  
   acts_as_commentable   
   
-  attr_accessible :id, :installation_number, :installation_type_id, :client_number, :client_id,
+  attr_accessible :id, :multichoice_number, :financial_number, :installation_number, :installation_type_id, :client_number, :client_id,
                   :cost_total, :selling_total, :voucher_number,  
                   :decoder_number_one, :decoder_number_two,
                   :smartcard_number_one, :smartcard_number_two,

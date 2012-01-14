@@ -115,6 +115,8 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
     t.integer  "client_id"
     t.string   "installation_number"
     t.string   "client_number"
+    t.string   "multichoice_number"
+    t.string   "financial_number"
     t.string   "voucher_number"
     t.string   "decoder_number_one"
     t.string   "decoder_number_two"
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
     t.string   "lnb_no"
     t.decimal  "cost_total",           :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.decimal  "selling_total",        :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.datetime "installation_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

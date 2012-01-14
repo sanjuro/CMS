@@ -12,7 +12,7 @@ class Client < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
-  attr_accessible :client_number, :multichoice_number, :client_type, :title, :intials, :name, :surname, :id_number,
+  attr_accessible :client_number, :client_type, :title, :intials, :name, :surname, :id_number,
                   :is_smp, :smp_number, :smp_rep_code,
                   :fax, :telephone_home, :mobile_number_one, :mobile_number_two, :email_address,
                   :unit_number, :street_name, :suburb, :city,

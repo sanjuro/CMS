@@ -15,17 +15,7 @@
 			<tr>
 				<th><b>Installation Number:</b></th>
 				<td><%= @installation.installation_number %></td>
-			</tr>
-			
-			<tr>
-				<th><b>Client:</b></th>
-				<td><%= @installation.client_number %></td>
 			</tr>		
-						
-			<tr>
-				<th><b>Voucher Number:</b></th>
-				<td><%= @installation.voucher_number %></td>
-			</tr>	
 			
 			<tr>
 				<th><b>Decoder Number One:</b></th>
@@ -61,6 +51,39 @@
 				<th><b>Created At:</b></th>
 				<td><%= @installation.created_at %></td>
 			</tr>			
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel">
+	<h3>Client Details</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_installation_2" class="attributes_table installation">
+		<table>
+			<tbody>
+			
+			<tr>
+				<th><b>Client:</b></th>
+				<td><%= @installation.client_number %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Mulitchoice Number:</b></th>
+				<td><%= @installation.multichoice_number %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Financial Number:</b></th>
+				<td><%= @installation.financial_number %></td>
+			</tr>	
+						
+			<tr>
+				<th><b>Voucher Number:</b></th>
+				<td><%= @installation.voucher_number %></td>
+			</tr>				
 			</tbody>
 		</table>
 		</div>
