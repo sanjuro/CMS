@@ -101,6 +101,7 @@ class CreateCmsDb < ActiveRecord::Migration
     InstallationType.create!(:title => 'Multichoice')
     InstallationType.create!(:title => 'Big Bay')
     InstallationType.create!(:title => 'PVT')
+    InstallationType.create!(:title => 'Ellies')
     
     create_table :lnb_types, :options => "ENGINE=INODB" do |t|
       t.string :title
