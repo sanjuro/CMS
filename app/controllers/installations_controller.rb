@@ -7,7 +7,7 @@ class InstallationsController < ApplicationController
   def index
     @controller = "installations"
     @title = "Installations"
-    @installations = Installation.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+    @installations = Installation.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
    
     respond_to do |format|
       format.html { render :layout => true } # index.html.erb
