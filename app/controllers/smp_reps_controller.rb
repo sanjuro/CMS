@@ -74,4 +74,34 @@ class SmpRepsController < ApplicationController
     add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
   end
   
+  def update
+    @controller = "smp_reps"
+    @smp_rep = SmpRep.find(params[:id])
+    @title = "Editing " + @smp_rep.full_name
+   
+    respond_to do |format|
+      if @smp_rep.update_attributes(params[:smp_rep])
+        format.html  { redirect_to(@smp_rep,
+                      :notice => 'SMP Rep was successfully updated.') }
+        format.json  { render :json => {}, :status => :ok }
+      else
+        format.html  { render :action => "edit" }
+        format.json  { render :json => @smp_rep.errors,
+                      :status => :unprocessable_entity }
+      end
+    end
+  end
+
+ 
+  def destroy
+    @controller = "smp_reps"
+    @smp_rep = SmpRep.find(params[:id])
+    @smp_rep.destroy
+   
+    respond_to do |format|
+      format.html { redirect_to(smp_reps_url) }
+      format.xml  { head :ok }
+    end
+  end  
+  
 end

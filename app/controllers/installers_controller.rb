@@ -80,7 +80,7 @@ class InstallersController < ApplicationController
     @title = "Editing " + @installer.full_name
    
     respond_to do |format|
-      if @installer.update_attributes(params[:client])
+      if @installer.update_attributes(params[:installer])
         format.html  { redirect_to(@installer,
                       :notice => 'Installer was successfully updated.') }
         format.json  { render :json => {}, :status => :ok }
