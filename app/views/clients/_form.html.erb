@@ -25,9 +25,13 @@
     <%= f.label :surname %>
     <%= f.text_field :surname %>
 	</li>
+	<li id="client_industry_type_input" class="string optional">
+    <%= f.label :industry_type_id %>
+    <%= f.select(:industry_type_id, options_for_select(IndustryType.all.map { |industry_type| [industry_type.title, industry_type.id] })) %>
+	</li>
 	<li id="client_is_smp_input" class="string optional">
     <%= f.label :is_smp %>
-    <%= f.text_field :is_smp %>
+    <%= f.check_box :is_smp %>
 	</li>
 	<li id="client_smp_number_input" class="string optional">
     <%= f.label :smp_number %>

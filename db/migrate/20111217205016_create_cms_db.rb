@@ -3,6 +3,7 @@ class CreateCmsDb < ActiveRecord::Migration
   def self.up
     create_table :clients, :options => "ENGINE=INNODB" do |t|
       t.references :client_type
+      t.references :industry_type
       t.string :client_number, :unique => true
       t.string :title
       t.string :initials
@@ -30,10 +31,30 @@ class CreateCmsDb < ActiveRecord::Migration
     end
     
     add_index :clients, :client_number, :unique => true
+    add_index :clients, :smp_rep_code, :unique => true
     
     create_table :client_types, :options => "ENGINE=INODB" do |t|
       t.string :title
     end
+    
+    create_table :industry_types, :options => "ENGINE=INODB" do |t|
+      t.string :title
+    end
+    
+    IndustryType.create!(:title => 'Agriculture')
+    IndustryType.create!(:title => 'Construction')
+    IndustryType.create!(:title => 'Finance')
+    IndustryType.create!(:title => 'Government')
+    IndustryType.create!(:title => 'Health Care')
+    IndustryType.create!(:title => 'Information Technology')
+    IndustryType.create!(:title => 'Insurance')
+    IndustryType.create!(:title => 'Manufacturing')
+    IndustryType.create!(:title => 'Real Estate')
+    IndustryType.create!(:title => 'Retail, Wholesale')
+    IndustryType.create!(:title => 'Services')
+    IndustryType.create!(:title => 'Transportation')
+    IndustryType.create!(:title => 'Communications, Utilities')
+    IndustryType.create!(:title => 'Nonprofit')
     
     create_table :installers, :options => "ENGINE=INODB" do |t|
       t.string :installer_number

@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
 
   create_table "clients", :force => true do |t|
     t.integer  "client_type_id"
+    t.integer  "industry_type_id"
     t.string   "client_number"
     t.string   "title"
     t.string   "initials"
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
   end
 
   add_index "clients", ["client_number"], :name => "index_clients_on_client_number", :unique => true
+  add_index "clients", ["smp_rep_code"], :name => "index_clients_on_smp_rep_code", :unique => true
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -91,6 +93,10 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
   end
 
   add_index "comments", ["user_id"], :name => "fk_comments_user"
+
+  create_table "industry_types", :force => true do |t|
+    t.string "title"
+  end
 
   create_table "installation_items", :force => true do |t|
     t.integer  "installation_id"
