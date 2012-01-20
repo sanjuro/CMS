@@ -740,7 +740,7 @@ em.current {
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
 .notice, .infom, .print_pdf_button {   
-    background-color: #008D88;
+    background-color: #006699;
     border: 1px solid #008FFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
 .success {
