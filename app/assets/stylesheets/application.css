@@ -739,12 +739,13 @@ em.current {
     background-repeat: repeat-x;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
-.notice, .infom, .print_pdf_button {   
-    background-color: #006699;
-    border: 1px solid #008FFF;
+.notice, .infom, .print_pdf_button {    background-color: #339BB9;
+    background-image: -moz-linear-gradient(center top , #5BC0DE, #339BB9);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
-.success {
-	background: -moz-linear-gradient(center top , rgba(162, 236, 29, 0.4), rgba(162, 236, 29, 0.6)) repeat scroll 0 0 transparent;
+.success {background-color: #57A957;
+    background-image: -moz-linear-gradient(center top , #62C462, #57A957);
     border: 1px solid #8BCD00;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
 .error a, .alert a {color:#8a1f11;}
