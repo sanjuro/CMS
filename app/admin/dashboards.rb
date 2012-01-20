@@ -4,7 +4,7 @@ ActiveAdmin::Dashboards.build do
       table_for Installation.order('created_at desc').limit(15) do
         column("Number") {|installation| link_to(installation.installation_number, admin_installation_path(installation)) }
         column("Type") {|installation| installation.installation_type_id }
-        column("Client") {|installation| installation.client.fullname }
+        column("Client") {|installation| installation.client.full_name }
         column("Date") {|installation| installation.created_at? ? l(installation.created_at, :format => :long) : '-' } 
       end
   end   
