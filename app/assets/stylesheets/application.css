@@ -746,7 +746,8 @@ em.current {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
 .success {background-color: #57A957;
     background-image: -moz-linear-gradient(center top , #62C462, #57A957);
-    border: 1px solid #8BCD00;
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);}
 .error a, .alert a {color:#8a1f11;}
 .notice a {color:#514721;}

@@ -11,7 +11,7 @@ ActiveAdmin::Dashboards.build do
   
   section "Recent Clients", :priority => 2  do
       table_for Client.order('created_at desc').limit(10) do
-        column("Client") {|client| link_to(client.fullname, admin_client_path(client)) + ' ' + 'joined at' + ' ' + l(client.created_at, :format => :long) }
+        column("Client") {|client| link_to(client.full_name, admin_client_path(client)) + ' ' + 'joined at' + ' ' + l(client.created_at, :format => :long) }
       end     
   end
     
