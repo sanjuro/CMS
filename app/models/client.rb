@@ -44,6 +44,8 @@ class Client < ActiveRecord::Base
   
   before_create :generate_client_number
   
+  scope :by_smp_rep, lambda {|smp_rep_code| where("clients.smp_rep_code =?", smp_rep_code)}
+  
   def self.search(search,type)
     if search
       where('client_number LIKE ? OR name LIKE ? OR surname LIKE ? OR street_name LIKE ? OR smp_number LIKE ? OR smp_rep_code LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")                                

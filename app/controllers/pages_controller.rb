@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
     @controller = "clients"
     @title = "Home"
+    
+    @client_count = Client.count
+    @installation_count = Installation.count
 
   end
   

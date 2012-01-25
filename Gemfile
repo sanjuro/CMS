@@ -35,11 +35,6 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', '0.8.2', :require => false
-end
-
 gem 'devise', '1.4.7'
 
 gem 'activeadmin'
@@ -66,4 +61,5 @@ group :test do
 	gem 'webrat'
 	gem 'factory_girl_rails'
 	gem 'spork'
+	gem 'turn', '0.8.2', :require => false
 end

@@ -3,6 +3,23 @@
 </h1>
 
 <div class="panel">
+	<h3>SMP Rep Stats</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_smp_rep_2" class="attributes_table smp_rep">
+		<table>
+			<tr>
+				<th><b>Total Client count:</b></th>
+				<td><%= @client_count %> <%= link_to 'Show Clients', clients_path(:search => @smp_rep.smp_rep_code) %></td>
+			</tr>	
+			
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel">
 	<h3>SMP Rep Details</h3>
 	
 	<div class="panel_contents">

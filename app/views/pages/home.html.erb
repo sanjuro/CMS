@@ -1,5 +1,27 @@
 <h1>Home</h1>
-
+<div class="panel">
+	<h3>System Stats</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_smp_rep_2" class="attributes_table smp_rep">
+		<table>
+			<tbody>
+			
+			<tr>
+				<th><b>Total Client count:</b></th>
+				<td><%= @client_count %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Total Installation count:</b></th>
+				<td><%= @installation_count %></td>
+			</tr>	
+			
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
 	<p>
 		<div id="clients_chart" style="width: 760px; height: 300px;"></div>
 	</p>

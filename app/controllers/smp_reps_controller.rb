@@ -55,6 +55,8 @@ class SmpRepsController < ApplicationController
     @smp_rep = SmpRep.find(params[:id])
     @title = "Showing " + @smp_rep.full_name
     
+    @client_count = Client.by_smp_rep(@smp_rep.smp_rep_code).count
+    
     @comments = @smp_rep.comments.recent.limit(10).all
     
     add_breadcrumb "SMP Reps", smp_reps_path, :title => "Back to the Index"
