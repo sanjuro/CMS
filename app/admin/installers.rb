@@ -11,8 +11,8 @@ ActiveAdmin.register Installer do
   # Customize columns displayed on the index screen in the table
   index do
     column :id
-    column :first_name
-    column :second_name
+    column :name
+    column :surname
     column :created_at
     default_actions   
   end
