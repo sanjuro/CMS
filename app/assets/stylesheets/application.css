@@ -501,17 +501,8 @@ input#search {
     text-align: center;
 	}
 	
- .feed_button {
-	background-color: #EDEFF$;
-    border: 1px solid #466A98;
-    border-radius: 4px 4px 4px 4px;
-    color: #FFFFFF !important;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px 10px 6px;
-    text-align:center;
-    text-decoration: none;
-    text-shadow: 0 -1px 0 #003366;
+ .more_button {
+    cursor:pointer;
 	}
 	
 .feed_installation_blank {
