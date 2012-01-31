@@ -487,15 +487,20 @@ input#search {
 	margin-bottom: 10px;
 	padding: 10px 0px;
 	}
-.loader {
-	background: -moz-linear-gradient(-90deg, #EFEFEF, #DFE1E2) repeat scroll 0 0 transparent;
-    color: #AAAAAA !important;
-    font-size: 16px;
+	
+.feed_loader {
+  	background-color: #E6E6E6;
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    color:#888;
+    font-family: arial;
+    font-size: 15px;
     font-weight: bold;
-    padding: 5px 10px 6px;
-    text-align:center;
-    text-decoration: none;
+    margin-left: 10px;
+    padding: 10px;
+    text-align: center;
 	}
+	
  .feed_button {
 	background-color: #EDEFF$;
     border: 1px solid #466A98;
@@ -508,6 +513,7 @@ input#search {
     text-decoration: none;
     text-shadow: 0 -1px 0 #003366;
 	}
+	
 .feed_installation_blank {
     border: 1px dashed #DADADA;
     border-radius: 3px 3px 3px 3px;

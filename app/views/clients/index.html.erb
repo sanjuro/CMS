@@ -11,42 +11,40 @@
     <%= render @clients %>
   </div>
 </div>
-<div id="feed_loader" class="loader" style="display:none;">Loading more ...</div>
+
+<div id="feed_loader" class="feed_loader">
+	<a id="more_button" class="more_button">Load more</a>
+	<div id="loading_more" class="loader" style="display:none">Loading more..</div>
+</div>
 <% end %>
   
 <script type="text/javascript">
-(function() {
-  var page = 1,
-      loading = false;
+$(document).ready(function() {
+  var page = 1;
+  loading = false;
 
-  function nearBottomOfPage() {
-    return $(window).scrollTop() > $(document).height() - $(window).height() - 200;
-  }
-
-  $(window).scroll(function(){
-    if (loading) {
-      return;
-    }
-
-    if(nearBottomOfPage()) {
+  $('#more_button').click(function() {
       loading=true;
       page++;
+      
+      $('#more_button').hide();
       $.ajax({
         url: '/clients?page=' + page,
         type: 'get',
         dataType: 'script',
-        loading: $('#feed_loader').show(),
+        loading: $('#loading_more').show(),
         complete: function(){
-        			$('#feed_loader').hide();$('#load_button').show();
+        			$('#loading_more').hide();
+        			$('#more_button').show();
      			 },
         success: function() {
           $(window).sausage('draw');
           loading=false;
         }
       });
-    }
   });
 
+
   $(window).sausage();
-}());
+});
 </script>
