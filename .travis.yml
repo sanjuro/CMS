@@ -14,5 +14,8 @@ branches:
   only:
     - master
 
+env:
+  - DB=mysql
+
 before_script:
-  - "mysql -e 'create database cms;'"
+  - "mysql -e 'create database cms_test;'"
