@@ -9,7 +9,6 @@ ActiveAdmin.register Client do
   filter :registered_name
   filter :street_name
 
-
   # Customize columns displayed on the index screen in the table
   index do
     column :client_number
