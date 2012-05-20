@@ -37,7 +37,31 @@ class Installation < ActiveRecord::Base
   def self.count_on(date)
     where("date(created_at) = ?",date).count(:id)
   end
-  
+
+  def self.installations_by_month(month)
+
+    installations = Installation.select("installation_types.title, COUNT(*) as total").joins("LEFT JOIN installation_types ON installations.installation_type_id = installation_types.id").where("date(installations.created_at) >= ?", month).where("date(installations.created_at) < ?", month + 1.month).group("installation_type_id").all
+
+    total = 0
+
+    installation_data = Array.new
+    installation_types = Array.new
+
+    installations.each do |value|
+      installation_data << value['total']
+      installation_types << value['title']
+      total += value['total'].to_i()
+    end
+    
+    drilldown_data = "name: '" + month.to_s() + "'" +
+                    ", categories: [" + installation_types.map{ |i|  %Q('#{i}') }.join(',') + "] " +
+                    ", data: [" + installation_data.map{ |i|  %Q(#{i}) }.join(',') + "] "
+                    ", color: colors[0]"
+    
+    data = '{ y: ' + total.to_s() + ', color: colors[0], drilldown: {' + drilldown_data.to_s() + ', color: colors[0]} }'
+
+  end
+
   def generate_installation_number
     record = true
     while record

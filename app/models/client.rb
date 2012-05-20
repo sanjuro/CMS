@@ -45,6 +45,7 @@ class Client < ActiveRecord::Base
   before_create :generate_client_number
   
   scope :by_smp_rep, lambda {|smp_rep_code| where("clients.smp_rep_code =?", smp_rep_code)}
+  scope :find_smp_clients, where("is_smp = 1")
   
   def self.search(search,type)
     if search
