@@ -16,7 +16,7 @@ class Client < ActiveRecord::Base
                   :is_smp, :smp_number, :smp_rep_code,
                   :fax, :telephone_home, :mobile_number_one, :mobile_number_two, :email_address,
                   :unit_number, :street_name, :suburb, :city,
-                  :province, :postal_code, :latitude, :longitude,
+                  :province, :postal_code, :latitude, :longitude, :created_by,
                   :created_at, :updated_at
        
   validates :client_number, :uniqueness => true, :on => :create
@@ -37,14 +37,16 @@ class Client < ActiveRecord::Base
                                   
   # validates :email_address, :format => { :with => email_regex }   
                               
+  belongs_to  :user, :primary_key => :id , :foreign_key => :created_by 
   belongs_to  :smp_rep, :primary_key => :smp_rep_code , :foreign_key => :smp_rep_code                                    
-  belongs_to :industry_type
+  belongs_to  :industry_type
   
   has_many :installations
   
   before_create :generate_client_number
   
   scope :by_smp_rep, lambda {|smp_rep_code| where("clients.smp_rep_code =?", smp_rep_code)}
+  scope :by_creator, lambda {|user_id| where("clients.created_by =?", user_id)}
   scope :find_smp_clients, where("is_smp = 1")
   
   def self.search(search,type)

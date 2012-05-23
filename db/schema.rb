@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104205515) do
+ActiveRecord::Schema.define(:version => 20120523111100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -78,10 +78,11 @@ ActiveRecord::Schema.define(:version => 20120104205515) do
     t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
   end
 
   add_index "clients", ["client_number"], :name => "index_clients_on_client_number", :unique => true
-  add_index "clients", ["smp_rep_code"], :name => "index_clients_on_smp_rep_code", :unique => true
+  add_index "clients", ["created_by"], :name => "fk_clients_user"
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""

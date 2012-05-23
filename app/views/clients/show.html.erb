@@ -41,7 +41,12 @@
 			<tr>
 				<th><b>SMP Rep Code:</b></th>
 				<td><%= @client.smp_rep_code %></td>
-			</tr>			
+			</tr>	
+
+			<tr>
+				<th><b>Created By:</b></th>
+				<td><%= @client.user.name %></td>
+			</tr>					
 			</tbody>
 		</table>
 		</div>
