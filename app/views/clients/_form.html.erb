@@ -43,7 +43,11 @@
 	</li>
   <li id="client_created_by_input" class="string optional">
     <%= f.label :created_by %>
-    <%= f.select(:created_by, options_for_select(User.all.map { |user| [user.name, user.id] })) %>
+    <% if @client.user.nil? %>
+      <i>This is a new client and this field will be updated once you have saved the client.</i>
+    <% else %>
+      <%= @client.user.name %>
+    <% end %>
   </li>
   </ol>
   </fieldset>
