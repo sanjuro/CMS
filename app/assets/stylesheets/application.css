@@ -5,7 +5,7 @@
  *= require_self
 */
 body {
-    background: url("http://preprod-img.prestashopinc.netdna-cdn.com/bg-main.gif") repeat scroll 0 0 transparent;
+    background: url('/assets/bg-main.gif') repeat scroll 0 0 transparent;
     color: #323537;
     font-family: Helvetica,Arial,sans-serif;
     font-size: 72%;
