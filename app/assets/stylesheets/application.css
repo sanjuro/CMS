@@ -7,9 +7,9 @@
 body {
     background: url('/assets/bg-main.gif') repeat scroll 0 0 transparent;
     color: #323537;
-    font-family: Helvetica,Arial,sans-serif;
-    font-size: 72%;
-    line-height: 150%;
+    font-family: Arial,Times New Roman,sans-serif;
+    font-size: 12px;
+    line-height: 1.3em;
     padding: 0px;
     margin: 0px; 
 }
@@ -106,14 +106,17 @@ a:hover {
 }
 
 a.button {
-	background-color: #2B5EA4;
+    background-color: #2B5EA4;
+    background: -moz-linear-gradient(center top , #00B4F5 0%, #0096D2 100%) repeat scroll 0 0 transparent;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 100, 145, 0.498);   
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF !important;
     font-size: 13px;
     font-weight: bold;
-    padding: 10px 10px 6px;
+    padding: 5px 10px 6px;
     text-decoration: none;
+    text-shadow: 0 -1px 0 #003366;  
 	}
 .show_page_buttons {
 	float: right;
@@ -362,6 +365,8 @@ form fieldset > ol > li.error input[type="text"], form fieldset > ol > li.error 
 }
 form input[type="submit"], div.panel_contents input[type="submit"]{
 	background-color: #2B5EA4;
+    background: -moz-linear-gradient(center top , #00B4F5 0%, #0096D2 100%) repeat scroll 0 0 transparent;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 100, 145, 0.498);   
     border: 1px solid #466A98;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF !important;
@@ -372,8 +377,9 @@ form input[type="submit"], div.panel_contents input[type="submit"]{
     text-shadow: 0 -1px 0 #003366;		
 }
 form input[type="submit"]:hover, .button:hover {
-    box-shadow: 0 1px 3px #888888;
-    color: #FFFFFF;
+    background: none repeat scroll 0 0 #00A5E4 !important;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 0 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 100, 145, 0.5);
+    text-decoration: none;
 }
 form input[type="submit"]:hover span.icon svg path, form input[type="submit"]:hover span.icon svg polygon, form input[type="submit"]:hover span.icon svg rect, form input[type="submit"]:hover span.icon svg circle {
     fill: white !important;
@@ -397,10 +403,10 @@ form fieldset.buttons li.cancel {
     padding: 5px;
 }
 form fieldset.buttons li.cancel a {
-    background: -moz-linear-gradient(-90deg, #F9F9F9, #DDDBDB) repeat scroll 0 0 transparent;
+    background: -moz-linear-gradient(center top , #F5F6F7 0%, #D2D3D4 100%) repeat scroll 0 0 transparent;
     border: medium none;
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2);
     color: #777777;
     cursor: pointer;
     font-size: 1em;
@@ -409,11 +415,12 @@ form fieldset.buttons li.cancel a {
     margin-right: 3px;
     padding: 9px 10px;
     text-decoration: none;
-    text-shadow: 0 1px 0 white;
+    text-shadow: 0 1px 0 #FFFFFF !important;
 }
 form fieldset.buttons li.cancel a:hover {
-    box-shadow: 0 1px 3px #888888;
-    color: #FFFFFF;
+    background: none repeat scroll 0 0 #E6E7E8;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 3px rgba(0, 0, 0, 0.5) inset, 0 0 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 form fieldset.buttons li.cancel a:hover span.icon svg path, form fieldset.buttons li.cancel a:hover span.icon svg polygon, form fieldset.buttons li.cancel a:hover span.icon svg rect, form fieldset.buttons li.cancel a:hover span.icon svg circle {
     fill: white !important;
