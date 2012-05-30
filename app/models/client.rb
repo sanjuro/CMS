@@ -44,7 +44,7 @@ class Client < ActiveRecord::Base
   has_many :installations
   
   before_create :generate_client_number
-  before_create :add_creator
+  # before_create :add_creator
   
   scope :by_smp_rep, lambda {|smp_rep_code| where("clients.smp_rep_code =?", smp_rep_code)}
   scope :by_creator, lambda {|user_id| where("clients.created_by =?", user_id)}
