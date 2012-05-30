@@ -23,6 +23,7 @@ class ClientsController < ApplicationController
     @title = "New Client"
     @controller = "clients"
     @client = Client.new
+    @client.user = current_user
    
     add_breadcrumb "clients", clients_path, :title => "Back to the Index"
     
@@ -36,7 +37,8 @@ class ClientsController < ApplicationController
   def create
     @controller = "clients"
     @client = Client.new(params[:client])
-   
+    @client.user = current_user
+    
     respond_to do |format|
       if @client.save
         format.html  { redirect_to(@client,

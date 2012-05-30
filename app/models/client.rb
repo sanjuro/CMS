@@ -44,7 +44,6 @@ class Client < ActiveRecord::Base
   has_many :installations
   
   before_create :generate_client_number
-  # before_create :add_creator
   
   scope :by_smp_rep, lambda {|smp_rep_code| where("clients.smp_rep_code =?", smp_rep_code)}
   scope :by_creator, lambda {|user_id| where("clients.created_by =?", user_id)}
@@ -70,10 +69,6 @@ class Client < ActiveRecord::Base
     end
     self.client_number = random if self.client_number.blank?
     self.client_number
-  end
-
-  def add_creator
-     self.created_by = current_user.id
   end
   
   def full_name

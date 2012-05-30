@@ -45,7 +45,11 @@
 
 			<tr>
 				<th><b>Created By:</b></th>
-				<td><%= @client.user.name %></td>
+			    <% if @client.user.nil? %>
+			      <td><i>This is client was captured without a creator.</i></td>
+			    <% else %>
+			      <td><%= @client.user.name %></td>
+			    <% end %>
 			</tr>					
 			</tbody>
 		</table>
