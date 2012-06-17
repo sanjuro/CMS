@@ -1,0 +1,68 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <fieldset class="inputs" name="Details">
+  <legend><h3>Details</h3></legend>
+  <ol>
+  <li id="product_name_input" class="string optional">
+    <%= f.label :product_name %>
+    <%= f.text_field :product_name %>
+  </li>
+	<li id="product_code_input" class="string optional">
+    <%= f.label :product_code %>
+    <%= f.text_field :product_code %>
+	</li>
+	<li id="product_type_input" class="string optional">
+    <%= f.label :product_type_id %>
+    <%= f.select(:product_type_id, options_for_select(ProductType.all.map { |product_type| [product_type.title, product_type.id] })) %>
+	</li>
+  <li id="product_description_input" class="string optional">
+    <%= f.label :product_description %>
+    <%= f.text_field :product_description %>
+  </li>
+	<li id="product_stock_level_input" class="string optional">
+    <%= f.label :stock_level %>
+    <%= f.text_field :stock_level %>
+	</li>
+  </ol>
+  </fieldset>
+  
+  <fieldset class="inputs" name="Contact">
+  <legend><span>Price</span></legend>
+  <ol>
+	<li id="product_cost_price_input" class="string optional">
+    <%= f.label :cost_price %>
+    <%= f.text_field :cost_price %>
+	</li>
+	<li id="product_wholesale_price_input" class="string optional">
+    <%= f.label :wholesale_price %>
+    <%= f.text_field :wholesale_price %>
+	</li>
+	<li id="product_selling_price_input" class="string optional">
+    <%= f.label :selling_price %>
+    <%= f.text_field :selling_price %>
+	</li>
+  </ol>
+  </fieldset>  
+  
+  <fieldset class="buttons">
+  <ol>
+  	<li class="commit">
+  		<%= f.submit %>
+  	</li>
+  	<li class="cancel">
+  		<%= link_to 'Back', products_path %>
+  	</li>
+  </ol>
+  </fieldset>
+
+<% end %>

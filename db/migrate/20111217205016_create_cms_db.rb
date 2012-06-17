@@ -140,6 +140,7 @@ class CreateCmsDb < ActiveRecord::Migration
       t.string "product_code"
       t.text "product_description"
       t.decimal "cost_price", :precision => 8, :scale => 2, :null => true
+      t.decimal "wholesale_price", :precision => 8, :scale => 2, :null => false
       t.decimal "selling_price", :precision => 8, :scale => 2, :null => false
       t.datetime "available_on"
       t.datetime "deleted_at"

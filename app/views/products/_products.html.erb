@@ -1,0 +1,39 @@
+<% if @products.empty? %>
+	<h3>
+	<span class="blank_slate">
+		There are no Products yet. <%= link_to 'Create One', new_product_path %>
+	</span>
+	</h3>
+<% else %>
+<h1>Listing Products</h1>
+
+<%= will_paginate @products %>
+
+<table> 
+	<tr>
+		<th>Product Code</th> 
+		<th>Name</th>  
+		<th>Stock Level</th> 
+		<th></th>
+	</tr>
+	
+	<% @products.each do |product| %>
+	    <tr class="<%= cycle("even", "odd") %>">
+	    	<td><%= product.product_code %></td>
+			<td><%= product.product_name %></td>
+			<td><%= product.stock_level %></td> 
+			<td>
+				<%= link_to 'Show', product %> 
+				<%= link_to 'Edit', edit_product_path(product) %>
+				<%= link_to 'Delete', product, :confirm => 'Are you sure?',:method => :delete %>
+			</td> 
+		</tr>
+		
+	<% end %> 
+</table>
+
+<%= will_paginate @products %>
+<br>
+
+<%= link_to 'New Product', new_product_path, :class => "button" %>
+<% end %>

@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
+
+  acts_as_commentable
   
-  attr_accessible :id, :product_type, :product_code, :product_name,
-                  :product_description, :cost_price, :selling_price
+  attr_accessible :id, :product_type, :product_code, :product_name, :stock_level,
+  					:meta_keywords, :meta_description,
+                  	:product_description, :cost_price, :wholesale_price, :selling_price
                   
   belongs_to :product_type      
   

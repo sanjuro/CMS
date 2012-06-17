@@ -1,0 +1,75 @@
+<h1>
+	Showing  <%= @product.product_name %>
+</h1>
+
+<div class="panel">
+	<h3>Product Details</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_product_1" class="attributes_table product">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Name:</b></th>
+				<td><%= @product.product_name %></td>
+			</tr>	
+			
+			<tr>
+				<th><b>Code:</b></th>
+				<td><%= @product.product_code %></td>
+			</tr>
+			
+			<tr>
+				<th><b>Type:</b></th>
+				<td><%= @product.product_type.title %></td>
+			</tr>		
+						
+			<tr>
+				<th><b>Description:</b></th>
+				<td><%= @product.product_description %></td>
+			</tr>	
+				
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel">
+	<h3>Product Prices</h3>
+	
+	<div class="panel_contents">
+		<div id="attributes_table_product_2" class="attributes_table product">
+		<table>
+			<tbody>
+			<tr>
+				<th><b>Cost Price:</b></th>
+				<td><%= @product.cost_price %></td>
+			</tr>
+
+			<tr>
+				<th><b>Wholesale Price:</b></th>
+				<td><%= @product.wholesale_price %></td>
+			</tr>
+
+			<tr>
+				<th><b>Selling Price:</b></th>
+				<td><%= @product.selling_price %></td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel"> 	
+	<h3>Comments</h3>
+	<div class="panel_body">
+	  	<%= render :partial => 'comments/comments', :locals => {:comments => @comments} %>
+	  	
+		<%= render :partial => 'comments/comment_form', :locals => {:model => @product, :type => 'Product'} %>	
+	</div>
+</div>
+ 
+<%= link_to 'Edit', edit_product_path(@product), :class => "button" %> |
+<%= link_to 'Back to list', product_path %>
