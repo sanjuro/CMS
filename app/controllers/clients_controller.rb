@@ -7,7 +7,13 @@ class ClientsController < ApplicationController
   def index
     @title = "Clients"
     @controller = "clients"
-    @clients = Client.search(params[:search],params[:fieldtype]).order('created_at DESC').page(params[:page]).per(5)
+    # @clients = Client.search(params[:search],params[:fieldtype]).order('created_at DESC').page(params[:page]).per(5)
+
+    search = Client.solr_search do
+      fulltext params[:search]
+      paginate :per_page => 25
+    end
+    @clients = search.results
       
     add_breadcrumb "clients", clients_path, :title => "Back to the Index"
       

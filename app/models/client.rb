@@ -44,18 +44,25 @@ class Client < ActiveRecord::Base
   has_many :installations
   
   before_create :generate_client_number
+
+  searchable do
+    text :name, :stored => true, :boost => 5
+    text :surname
+    text :client_number
+    text :street_name
+  end
   
   scope :by_smp_rep, lambda {|smp_rep_code| where("clients.smp_rep_code =?", smp_rep_code)}
   scope :by_creator, lambda {|user_id| where("clients.created_by =?", user_id)}
   scope :find_smp_clients, where("is_smp = 1")
   
-  def self.search(search,type)
-    if search
-      where('client_number LIKE ? OR name LIKE ? OR surname LIKE ? OR street_name LIKE ? OR smp_number LIKE ? OR smp_rep_code LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")                                
-    else
-      scoped
-    end        
-  end
+  # def self.search(search,type)
+  #   if search
+  #     where('client_number LIKE ? OR name LIKE ? OR surname LIKE ? OR street_name LIKE ? OR smp_number LIKE ? OR smp_rep_code LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")                                
+  #   else
+  #     scoped
+  #   end        
+  # end
   
   def self.count_on(date)
     where("date(created_at) = ?",date).count(:id)

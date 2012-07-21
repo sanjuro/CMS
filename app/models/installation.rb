@@ -25,6 +25,14 @@ class Installation < ActiveRecord::Base
   accepts_nested_attributes_for :installation_items, :allow_destroy => true
              
   before_create :generate_installation_number
+
+  searchable do
+    text :installation_number, :boost => 5
+    text :client do 
+      client.name 
+    end
+    integer :financial_number
+  end
   
   def self.search(search,type)
     if search

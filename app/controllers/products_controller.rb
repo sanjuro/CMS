@@ -5,7 +5,12 @@ class ProductsController < ApplicationController
   def index
     @controller = "products"
     @title = "Products"
-    @products = Product.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+
+    search = Product.solr_search do
+      fulltext params[:search]
+      paginate :per_page => 25
+    end
+    @products = search.results
    
     respond_to do |format|
       format.html { render :layout => true } # index.html.erb

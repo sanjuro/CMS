@@ -7,8 +7,15 @@ class InstallationsController < ApplicationController
   def index
     @controller = "installations"
     @title = "Installations"
-    @installations = Installation.search(params[:search],params[:fieldtype]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
-   
+
+    search = Installation.solr_search do
+      fulltext params[:search] do
+        fields(:client)
+      end
+      paginate(:per_page => 25, :page => params[:page])
+    end
+    @installations = search.results
+
     respond_to do |format|
       format.html { render :layout => true } # index.html.erb
       format.xml  { render :xml => @installations }

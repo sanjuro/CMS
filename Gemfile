@@ -39,8 +39,10 @@ gem 'capistrano-ext'
 gem 'devise', '1.4.7'
 
 gem 'activeadmin'
-
 gem "meta_search",    '>= 1.1.0.pre'
+
+gem 'sunspot_rails'
+gem 'progress_bar'
 
 gem 'will_paginate'
 
@@ -55,7 +57,9 @@ gem 'prawn_rails'
 
 group :development do 
 	gem 'rspec-rails'
+	gem 'sunspot_solr'
 end
+
 
 group :test do 
 	gem 'rspec-rails'

@@ -1,22 +1,7 @@
 <h1>Clients  <%= link_to 'New Client', new_client_path, :class => "button" %></h1>
 <div id="clients">
-<% if @clients.empty? %>
-	<h3>
-	<span class="blank_slate">
-		There are no Clients yet. <%= link_to 'Create One', new_client_path %>
-	</span>
-	</h3>
-<% else %>
-  <div class="page">
-    <%= render @clients %>
-  </div>
+    <%= render :partial => 'clients/clients', %>
 </div>
-
-<div id="feed_loader" class="feed_loader">
-	<a id="more_button" class="more_button">Load more</a>
-	<div id="loading_more" class="loader" style="display:none">Loading more..</div>
-</div>
-<% end %>
   
 <script type="text/javascript">
 $(document).ready(function() {

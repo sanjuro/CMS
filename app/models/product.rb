@@ -9,6 +9,11 @@ class Product < ActiveRecord::Base
   belongs_to :product_type      
   
   has_many :images, :as => :viewable, :order => :position, :dependent => :destroy
+
+  searchable do
+    text :product_name, :stored => true, :boost => 5
+    string :product_code
+  end
   
   def product_images
     Image.find_by_sql("SELECT assets.* FROM assets LEFT JOIN products ON (product.id = asset.viewable_id) WHERE (product_id = #{self.id})")
