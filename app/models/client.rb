@@ -46,7 +46,7 @@ class Client < ActiveRecord::Base
   before_create :generate_client_number
 
   searchable do
-    text :name, :stored => true, :boost => 5
+    text :name, :stored => true
     text :surname
     text :client_number
     text :street_name

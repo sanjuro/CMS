@@ -64,6 +64,7 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
     @title = "Showing " + @client.full_name
     
+    @installations = @client.installations
     @comments = @client.comments.recent.limit(10).all
     
     add_breadcrumb "clients", clients_path, :title => "Back to the Index"

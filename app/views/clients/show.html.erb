@@ -137,6 +137,47 @@
 </div>
 
 <div class="panel"> 	
+	<h3>Installations</h3>
+	<div class="panel_body">
+	<% if @installations.empty? %>
+		<h3>
+		<span class="blank_slate">
+			There are no Installations yet. <%= link_to 'Create One', new_installation_path %>
+		</span>
+		</h3>
+	<% else %>
+			<br>
+			<table> 
+				<tr>
+					<th>Installation Number</th> 
+					<th>Installation Type</th> 
+					<th>Client</th> 
+					<th>Decoder Number</th> 
+					<th>Date</th> 
+					<th></th>
+				</tr>
+				
+				<% @installations.each do |installation| %>
+				    <tr class="<%= cycle("even", "odd") %>">
+						<td><%= installation.installation_number %></td>
+						<td><%= installation.installation_type.title %></td> 
+						<td><%= installation.client.full_name %></td>
+						<td><%= installation.decoder_number_one %></td> 
+						<td><%= installation.created_at %></td>
+						<td>
+							<%= link_to 'Show', installation %> 
+							<%= link_to 'Edit', edit_installation_path(installation) %>
+							<%= link_to 'Delete', installation, :confirm => 'Are you sure?',:method => :delete %>
+						</td> 
+					</tr>
+					
+				<% end %> 
+			</table>
+	<% end %>
+	</div>
+</div>
+
+<div class="panel"> 	
 	<h3>Comments</h3>
 	<div class="panel_body">
 	  	<%= render :partial => 'comments/comments', :locals => {:comments => @comments} %>

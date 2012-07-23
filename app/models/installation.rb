@@ -27,7 +27,7 @@ class Installation < ActiveRecord::Base
   before_create :generate_installation_number
 
   searchable do
-    text :installation_number, :boost => 5
+    string :installation_number
     text :client do 
       client.name 
     end
