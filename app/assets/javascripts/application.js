@@ -5,6 +5,7 @@
 // the compiled file.
 //
 //= require jquery-1.7.1.min
+//= require jquery_ujs
 //= require jquery-ui
 //= require highcharts
 //= require jquery.sausage

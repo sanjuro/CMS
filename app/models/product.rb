@@ -12,9 +12,7 @@ class Product < ActiveRecord::Base
 
   searchable do
     text :product_name, :stored => true, :boost => 5
-    string  :product_code do
-      product_code.downcase.gsub(/^(an?|the)/, '')
-    end
+    text  :product_code
   end
   
   def product_images

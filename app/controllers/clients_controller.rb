@@ -105,6 +105,7 @@ class ClientsController < ApplicationController
  
   def destroy
     @controller = "clients"
+    p 'poes'
     @client = Client.find(params[:id])
     @client.destroy
    
