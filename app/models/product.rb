@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
   searchable do
     text :product_name, :stored => true, :boost => 5
     string  :product_code do
-      title.downcase.gsub(/^(an?|the)/, '')
+      product_code.downcase.gsub(/^(an?|the)/, '')
     end
   end
   
