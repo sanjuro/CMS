@@ -10,7 +10,7 @@
 		<table>
 			<tr>
 				<th><b>Total Client count:</b></th>
-				<td><%= @client_count %> <%= link_to 'Show Clients', clients_path(:search => @smp_rep.smp_rep_code) %></td>
+				<td><%= @clients.count %> <%= link_to 'Show Clients', clients_path(:search => @smp_rep.smp_rep_code) %></td>
 			</tr>	
 			
 			</tbody>
@@ -53,6 +53,13 @@
 			</tbody>
 		</table>
 		</div>
+	</div>
+</div>
+
+<div id="clients" class="panel"> 	
+	<h3>Clients</h3>
+	<div class="panel_body">
+	  	<%= render :partial => 'clients/clients', :locals => {:clients => @clients} %>
 	</div>
 </div>
 
