@@ -6,7 +6,7 @@
 	</h3>
 <% else %>
 
-<%= will_paginate @clients %>
+<%= will_paginate @clients, :params => { :search => params[:search] } %>
 <br>
 <table> 
 	<tr>
@@ -35,7 +35,7 @@
 	<% end %> 
 </table>
 
-<%= will_paginate @clients %>
+<%= will_paginate @clients, :params => { :search => params[:search] } %>
 <br>
 
 <%= link_to 'New Client', new_client_path, :class => "button" %>
